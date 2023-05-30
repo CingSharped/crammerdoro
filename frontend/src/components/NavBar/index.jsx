@@ -3,16 +3,11 @@ import { Button, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstr
 import { Outlet } from 'react-router-dom';
 
 import logo from '../../assets/Cramodoro Favicon.png'
-import timer from '../../assets/timer.png'
-
-
 import { PomodoroTimer } from '..'
-
-
 
 const styles = ({ isActive }) => ({ color: isActive ? '#ECD444' : 'black' });
 
-const PageWrapper = () => {
+const NavBar = () => {
     return <>
         <header>
             <Navbar bg="light" expand="lg" fixed="top">
@@ -33,7 +28,6 @@ const PageWrapper = () => {
                     <Nav className="justify-content-end flex-grow-1 pe-3">
 
                         <PomodoroTimer />
-
 
                         <Nav.Link href="/" style={{ styles }}>Home</Nav.Link>
                         <Nav.Link href="/dashboard" style={{ styles }}>Dashboard</Nav.Link>
@@ -56,8 +50,8 @@ const PageWrapper = () => {
                             </NavDropdown.Item>
                         </NavDropdown>
 
-                        <Nav.Link href="#flashcards" style={{ styles }} disabled>Quizzes</Nav.Link>
-                        <Nav.Link href="#flashcards" style={{ styles }} disabled>Flashcards</Nav.Link>
+                        <Nav.Link href="flashcards" style={{ styles }} disabled>Quizzes</Nav.Link>
+                        <Nav.Link href="/flashcards" style={{ styles }} >Flashcards</Nav.Link>
 
                     </Nav>
                 </Container>
@@ -67,4 +61,4 @@ const PageWrapper = () => {
     </>
 };
 
-export default PageWrapper;
+export default NavBar;

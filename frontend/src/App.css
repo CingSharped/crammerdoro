@@ -20,33 +20,19 @@ body {
 }
 
 .homepage {
-  align-items: center;
-  justify-content: center;
-  /* transform: translate(0vh, 58.5vh); */
-  width: 100vw !important;
-  /* height: 140vh !important; */
-  display: flex;
   background-image: url('./assets/Cramodoro.png');
   background-size: 50%;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: left center;
-  max-height: 100vh;
+  background-position: left;
 }
 
 .dashboard {
-  align-items: center;
-  justify-content: center;
-  /* transform: translate(0vh, 58.5vh); */
-  width: 100vw !important;
-  /* height: 140vh !important; */
-  display: flex;
   background-image: url('./assets/Cramodoro.png');
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
-  max-height: 100vh;
 }
 
 .left-container {
@@ -81,26 +67,18 @@ body {
   margin-top: 40vw;
 }
 
-.dashboard {
-  align-items: center;
-  justify-content: center;
-  transform: translate(0vh, 8.5vh);
-  width: 100vw;
-  height: 200vh;
-}
-
 .subject-dropdown {
-  margin-top: 50vh;
+  margin-top: 40vh;
   margin-right: 1vw;
 }
 
 .quiz-button {
-  margin-top: 50vh;
+  margin-top: 40vh;
   margin-right: 1vw;
 }
 
 .flashcards-button {
-  margin-top: 50vh;
+  margin-top: 40vh;
   margin-right: 1vw;
 }
 

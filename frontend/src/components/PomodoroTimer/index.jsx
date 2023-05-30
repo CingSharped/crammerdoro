@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock } from '@fortawesome/free-regular-svg-icons'
+// import { faClock } from '@fortawesome/free-regular-svg-icons'
 import { faPlay, faRotateRight } from '@fortawesome/free-solid-svg-icons'
 
 import './pomodoroTimer.css'
@@ -89,7 +89,7 @@ const PomodoroTimer = () => {
           ) : (
             <div>
               {showStartButton ? (
-                <button onClick={handleButtonClick} className='timer-btn' aria-label='Open timer'><FontAwesomeIcon icon={faClock} size='xl' /></button>
+                <button onClick={handleButtonClick} className='timer-btn' aria-label='Open timer'><img src="timer.png" style={{ width: "25px" }} /></button>
               ) : (
                 <button onClick={handleButtonClick} className='timer-btn' aria-label='restart button'><FontAwesomeIcon icon={faRotateRight} size="xl" /></button>
               )}
