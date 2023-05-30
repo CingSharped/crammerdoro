@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import ReactFullpage from "@fullpage/react-fullpage";
 
 import scroll from '../../assets/scroll down.png'
-import bkgd from '../../assets/Cramodoro.png'
+import studying from '../../assets/studying.png'
 
 const Home = () => {
   return (
@@ -20,11 +20,13 @@ const Home = () => {
                 <h2>Home</h2>
 
                 <div className='left-container'>
-                  <Button className='get-started' variant="outline-info" size='lg'><Link to="/login" style={{ textDecoration: 'none' }}>Get Started</Link></Button>
+                  <Button className='login-btn' variant="outline-info" size='lg'><Link to="/login" style={{ textDecoration: 'none' }}>Login</Link></Button>
+
+                  <Button className='register-btn' variant="outline-info" size='lg'><Link to="/register" style={{ textDecoration: 'none' }}>Register</Link></Button>
                 </div>
 
                 <div className='right-container'>
-                  <Button variant="outline-info" size='lg'><Link to="/login" style={{ textDecoration: 'none' }}>Right</Link></Button>
+                  <img src={studying} alt="student studying" className="studying" />
                 </div>
               </div>
 

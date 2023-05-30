@@ -36,7 +36,7 @@ body {
 
 .left-container {
   width: 50vw;
-  height: 100vh;
+  height: 90vh;
   float: left;
   display: block;
   justify-content: center;
@@ -45,15 +45,26 @@ body {
 
 .right-container {
   width: 50vw;
-  height: 100vh;
+  height: 90vh;
   float: right;
   display: block;
   justify-content: center;
   align-items: center;
 }
 
-.get-started {
-  margin-right: 20vw;
+.studying {
+  transform: translate(0vh, 25vh);
+  width: 90%;
+}
+
+.login-btn {
+  margin-right: 10vw;
+  margin-top: 40vw;
+}
+
+.register-btn {
+  margin-right: 10vw;
+  margin-top: 40vw;
 }
 
 .dashboard {
