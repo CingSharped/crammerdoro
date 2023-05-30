@@ -1,6 +1,98 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  min-height: 100vh;
+  max-height: 100vh;
+  max-width: 100vw;
+}
+
+body {
+  /* background-image: url('./assets/Cramodoro.png'); */
+  /* background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center; */
+  max-height: 100vh;
+}
+
+.navbar-nav {
+  align-items: center;
+}
+
+.homepage {
+  align-items: center;
+  justify-content: center;
+  /* transform: translate(0vh, 58.5vh); */
+  width: 100vw !important;
+  /* height: 140vh !important; */
+  display: flex;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  max-height: 100vh;
+  background-image: url('./assets/Cramodoro.png');
+}
+
+.left-container {
+  width: 50vw;
+  height: 100vh;
+  float: left;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-container {
+  width: 50vw;
+  height: 100vh;
+  float: right;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.get-started {
+  margin-right: 20vw;
+}
+
+.dashboard {
+  align-items: center;
+  justify-content: center;
+  transform: translate(0vh, 8.5vh);
+  width: 100vw;
+  height: 200vh;
+}
+
+.subject-dropdown {
+  transform: translate(-70vh, 55vh);
+  height: 0vh;
+}
+
+.quiz-button {
+  transform: translate(-45vh, 55vh);
+}
+
+.flashcards-button {
+  transform: translate(-40vh, 55vh);
+}
+
+.review-section {
+  transform: translate(0vw, 150vh);
+  width: 100vw;
+  height: 0vh
+}
+
+.review-container {
+  display: flex;
+  justify-content: center;
+}
+
+.review-border {
+  border: 1px solid black;
+  width: 80vw;
+  padding-bottom: 25%;
+  margin: 1%;
+  border-radius: 25px;
+  background-color: lightgrey;
 }
