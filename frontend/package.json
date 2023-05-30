@@ -12,6 +12,9 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@fullpage/react-fullpage": "^0.1.40",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
