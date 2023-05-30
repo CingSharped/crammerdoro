@@ -5,6 +5,8 @@ import { Outlet } from 'react-router-dom';
 import logo from '../../assets/Cramodoro Favicon.png'
 import timer from '../../assets/timer.png'
 
+import { PomodoroTimer } from '..'
+
 
 const styles = ({ isActive }) => ({ color: isActive ? '#ECD444' : 'black' });
 
@@ -27,6 +29,7 @@ const PageWrapper = () => {
                     </Form>
 
                     <Nav className="justify-content-end flex-grow-1 pe-3">
+                        <PomodoroTimer />
                         <Nav.Link href="/" style={{ styles }}>Home</Nav.Link>
                         <Nav.Link href="/dashboard" style={{ styles }}>Dashboard</Nav.Link>
 
@@ -51,11 +54,11 @@ const PageWrapper = () => {
                         <Nav.Link href="#flashcards" style={{ styles }} disabled>Quizzes</Nav.Link>
                         <Nav.Link href="#flashcards" style={{ styles }} disabled>Flashcards</Nav.Link>
 
-                        <span style={{ width: '2%', marginLeft: '10px' }} >
+                        {/* <span style={{ width: '2%', marginLeft: '10px' }} >
                             <Nav.Link href="#pomodoro" style={{ styles }}>
                                 <img src={timer} alt="Pomodoro" style={{ width: '1.5rem' }} />
                             </Nav.Link>
-                        </span>
+                        </span> */}
 
                     </Nav>
                 </Container>
