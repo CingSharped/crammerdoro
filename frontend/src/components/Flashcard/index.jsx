@@ -3,18 +3,20 @@ import React, { useState } from 'react';
 const Flashcard = ({ question, answer }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const handleFlip = () => {
+  const handleCardFlip = () => {
     setIsFlipped(!isFlipped);
   };
 
   return (
-    <div className="flashcard" onClick={handleFlip}>
-      <div className={`__card ${isFlipped ? 'flipped' : ''}`}>
+    <div className="_card" onClick={handleCardFlip}>
+      <div className={`card-inner ${isFlipped ? 'flipped' : ''}`}>
         <div className="card-front">
-          <h3>{question}</h3>
+          <h3>Question:</h3>
+          <p>{question}</p>
         </div>
         <div className="card-back">
-          <h3>{answer}</h3>
+          <h3>Answer:</h3>
+          <p>{answer}</p>
         </div>
       </div>
     </div>
