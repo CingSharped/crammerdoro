@@ -3,7 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 
 import * as Pages from './Pages'
 import { NavBar } from './components'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+import './components/NavBar/navbar.css'
 
 const App = () => {
   return (
