@@ -11,7 +11,10 @@ const App = () => {
       <Routes>
         <Route path='/' element={<NavBar />}>
           <Route index element={<Pages.Home />} />
-          <Route path='*' element={<Pages.NotFound />}/>
+          <Route path='/login' element={<Pages.Login />} />
+          <Route path="/register" element={<Pages.Register />} />
+          <Route path="/dashboard" element={<Pages.Dashboard />} />
+          <Route path='*' element={<Pages.NotFound />} />
         </Route>
       </Routes>
     </>
