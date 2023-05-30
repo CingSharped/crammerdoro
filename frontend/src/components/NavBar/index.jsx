@@ -1,42 +1,70 @@
-import { Button } from 'bootstrap';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Outlet, NavLink} from 'react-router-dom';
-import React, { useState } from 'react';
+import React from 'react';
+import { Button, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Outlet } from 'react-router-dom';
 
-import { PomodoroTimer } from '..';
+import logo from '../../assets/Cramodoro Favicon.png'
 
-function NavBar() {
-  
 
-  
-  return (
-    <>
-    <Navbar bg="light" expand="lg" className='p-2'>
-          <Navbar.Brand as={NavLink} to='/dashboard'>Cramodoro</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
-          <Nav className="ml-auto">
-            <PomodoroTimer />
-            <Nav.Link as={NavLink} to='/dashboard'>Dashboard</Nav.Link>
-            <NavDropdown title="Subjects" id="basic-nav-dropdown">
-              <NavDropdown.Item>Mathematics</NavDropdown.Item>
-              <NavDropdown.Item>English</NavDropdown.Item>
-              <NavDropdown.Item>History</NavDropdown.Item>
-              {/* <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-              Separated link
-            </NavDropdown.Item> */}
-            </NavDropdown>
-            <Nav.Link as={NavLink} to='/flashcards'>Flashcards</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-    </Navbar> 
-    <Outlet />
+
+import { PomodoroTimer } from '..'
+
+
+
+const styles = ({ isActive }) => ({ color: isActive ? '#ECD444' : 'black' });
+
+const PageWrapper = () => {
+    return <>
+        <header>
+            <Navbar bg="light" expand="lg" fixed="top">
+                <Container fluid>
+                    <img src={logo} alt="Music App Logo" className="logo" style={{ width: '4%', marginRight: '20px' }} />
+                    <Navbar.Brand href="/">CRAMODORO</Navbar.Brand>
+
+                    <Form className="d-flex mx-5">
+                        <Form.Control
+                            type="search"
+                            placeholder="Search"
+                            className="me-2"
+                            aria-label="Search"
+                        />
+                        <Button variant="outline-success">Search</Button>
+                    </Form>
+
+                    <Nav className="justify-content-end flex-grow-1 pe-3">
+
+                        <PomodoroTimer />
+
+
+                        <Nav.Link href="/" style={{ styles }}>Home</Nav.Link>
+                        <Nav.Link href="/dashboard" style={{ styles }}>Dashboard</Nav.Link>
+
+                        <NavDropdown title="Subjects" id="navbarScrollingDropdown">
+                            <NavDropdown.Item href="#action3">
+                                Maths
+                            </NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#action4">
+                                Science
+                            </NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#action5">
+                                History
+                            </NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#action6">
+                                Geography
+                            </NavDropdown.Item>
+                        </NavDropdown>
+
+                        <Nav.Link href="flashcards" style={{ styles }} disabled>Quizzes</Nav.Link>
+                        <Nav.Link href="/flashcards" style={{ styles }} >Flashcards</Nav.Link>
+
+                    </Nav>
+                </Container>
+            </Navbar>
+        </header>
+        <Outlet />
     </>
-  );
-  
-}
+};
 
-export default NavBar;
+export default PageWrapper;

@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClock } from '@fortawesome/free-regular-svg-icons'
+import { faPlay, faRotateRight } from '@fortawesome/free-solid-svg-icons'
+
+import './pomodoroTimer.css'
+
 const PomodoroTimer = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [showStartButton, setShowStartButton] = useState(true);
@@ -60,7 +66,7 @@ const PomodoroTimer = () => {
   };
 
   return (
-    <div>
+    <div className='component-holder'>
       {showPopup && (
         <div className="popup">
           <form onSubmit={handlePopupSubmit}>
@@ -68,28 +74,28 @@ const PomodoroTimer = () => {
               Minutes:
               <input type="number" name="minutesInput" min="1" max="60" required />
             </label>
-            <button type="submit">Start</button>
+            <button type="submit" className='timer-btn' aria-label='start button'><FontAwesomeIcon icon={faPlay} size="xl" /></button>
           </form>
         </div>
       )}
 
       {!showPopup && (
-        <div>
+        <>
           {totalSeconds > 0 ? (
-            <div>
+            <div className='component-holder'>
               <div>Timer: {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}</div>
-              <button onClick={handleButtonClick}>Reset</button>
+              <button onClick={handleButtonClick} className='timer-btn' aria-label='restart button'><FontAwesomeIcon icon={faRotateRight} size="xl" /></button>
             </div>
           ) : (
             <div>
               {showStartButton ? (
-                <button onClick={handleButtonClick}>Start Timer</button>
+                <button onClick={handleButtonClick} className='timer-btn' aria-label='Open timer'><img src="timer.png" style={{width:"25px"}}/></button>
               ) : (
-                <button onClick={handleButtonClick}>Reset</button>
+                <button onClick={handleButtonClick} className='timer-btn' aria-label='restart button'><FontAwesomeIcon icon={faRotateRight} size="xl" /></button>
               )}
             </div>
           )}
-        </div>
+        </>
       )}
     </div>
   );
