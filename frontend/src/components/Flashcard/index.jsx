@@ -11,11 +11,9 @@ const Flashcard = ({ question, answer }) => {
     <div className="_card" onClick={handleCardFlip}>
       <div className={`card-inner ${isFlipped ? 'flipped' : ''}`}>
         <div className="card-front">
-          <h3>Question:</h3>
           <p>{question}</p>
         </div>
         <div className="card-back">
-          <h3>Answer:</h3>
           <p>{answer}</p>
         </div>
       </div>
