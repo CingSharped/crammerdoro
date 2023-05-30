@@ -15,7 +15,7 @@ const styles = ({ isActive }) => ({ color: isActive ? '#ECD444' : 'black' });
 const PageWrapper = () => {
     return <>
         <header>
-            <Navbar bg="light" expand="lg" sticky="top">
+            <Navbar bg="light" expand="lg" fixed="top">
                 <Container fluid>
                     <img src={logo} alt="Music App Logo" className="logo" style={{ width: '4%', marginRight: '20px' }} />
                     <Navbar.Brand href="/">CRAMODORO</Navbar.Brand>

@@ -10,16 +10,17 @@ const Home = () => {
   return (
     <>
 
-      <ReactFullpage
+      {/* <ReactFullpage
         scrollingSpeed={1000}
         scrollHorizontally={true}
         render={() => {
-          return (
-            <ReactFullpage.Wrapper>
+          return ( */}
+            {/* <ReactFullpage.Wrapper> */}
               <div className="section homepage">
                 <div className='landing'>
                   <div className='landing-left' style={{width:'50vw'}}>
                     <img src="Cramodoro.png" id='cramodoro-image'/>
+                    <h5 id='intro'> Whether you're a student, a professional seeking to enhance your skills, or simply a curious mind eager to explore new subjects, we have the perfect tools expand your mind and master new subjects.</h5>
                     <div className='btn-holder'>
                       <button className='landing-btn' id='signup-btn'>Sign Up</button>
                       <button className='landing-btn' id='login-btn'>Log in</button>
@@ -29,7 +30,6 @@ const Home = () => {
                     <img src="AdobeStock_506811114.jpeg" id='studying-image'/>
                   </div>
                 </div>
-                {/* <h1>home</h1> */}
               </div>
 
               <div className="section">
@@ -38,18 +38,10 @@ const Home = () => {
               <div className="section">
                 <h2>Villains</h2>
               </div>
-            </ReactFullpage.Wrapper>
-          );
+            {/* </ReactFullpage.Wrapper> */}
+          {/* );
         }}
-      />
-
-      {/* <div className='homepage'>
-
-
-        <div>
-          <img src={scroll} alt="scroll-down" style={{ width: '1.5%', transform: 'translate(0vh, 32vh)', justifyContent: 'center' }} />
-        </div>
-      </div> */}
+      /> */}
     </>
   )
 }
