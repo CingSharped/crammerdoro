@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 import scroll from '../../assets/scroll down.png'
+import './dashboard.css'
 
 const Dashboard = () => {
   return (

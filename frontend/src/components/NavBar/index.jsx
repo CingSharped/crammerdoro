@@ -56,8 +56,8 @@ const PageWrapper = () => {
                             </NavDropdown.Item>
                         </NavDropdown>
 
-                        <Nav.Link href="#flashcards" style={{ styles }} disabled>Quizzes</Nav.Link>
-                        <Nav.Link href="#flashcards" style={{ styles }} disabled>Flashcards</Nav.Link>
+                        <Nav.Link href="/Quiz" style={{ styles }} >Quizzes</Nav.Link>
+                        <Nav.Link href="/flashcards" style={{ styles }} >Flashcards</Nav.Link>
 
                    
 
