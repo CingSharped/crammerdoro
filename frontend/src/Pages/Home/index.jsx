@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import ReactFullpage from "@fullpage/react-fullpage";
 
 import scroll from '../../assets/scroll down.png'
-import bkgd from '../../assets/Cramodoro.png'
+import './home.css'
 
 const Home = () => {
   return (
@@ -17,15 +17,19 @@ const Home = () => {
           return (
             <ReactFullpage.Wrapper>
               <div className="section homepage">
-                <h2>Home</h2>
-
-                <div className='left-container'>
-                  <Button className='get-started' variant="outline-info" size='lg'><Link to="/login" style={{ textDecoration: 'none' }}>Get Started</Link></Button>
+                <div className='landing'>
+                  <div className='landing-left' style={{width:'50vw'}}>
+                    <img src="Cramodoro.png" id='cramodoro-image'/>
+                    <div className='btn-holder'>
+                      <button className='landing-btn' id='signup-btn'>Sign Up</button>
+                      <button className='landing-btn' id='login-btn'>Log in</button>
+                    </div>
+                  </div>
+                  <div className='landing-right' style={{width:'50vw'}}>
+                    <img src="AdobeStock_506811114.jpeg" id='studying-image'/>
+                  </div>
                 </div>
-
-                <div className='right-container'>
-                  <Button variant="outline-info" size='lg'><Link to="/login" style={{ textDecoration: 'none' }}>Right</Link></Button>
-                </div>
+                {/* <h1>home</h1> */}
               </div>
 
               <div className="section">
