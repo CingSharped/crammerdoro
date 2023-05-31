@@ -12,7 +12,7 @@ const Flashcards = () => {
         <input type="text" />
         <button>Add</button>
         <div className='card-container'>
-          <Link to='/subjectflashcard/maths'>
+          <Link to='/subjectflashcard/math'>
             <div className='flashcard'>
               <h2>Maths</h2>
             </div>

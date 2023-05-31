@@ -42,8 +42,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  align-content: center;
-  flex-wrap: wrap;
 }
 
 .right-container {
@@ -53,8 +51,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  align-content: center;
-  flex-wrap: wrap;
 }
 
 .studying {
@@ -96,28 +92,5 @@ body {
   border: 1px solid black;
   border-radius: 25px;
   width: 80vw;
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
-}
-
-.options-container {
-  display: flex;
-  max-width: 100vw;
-}
-
-.try-these {
-  justify-content: center;
-  background-color: azure;
-  border: 1px solid black;
-  border-radius: 25px;
-  width: 80vw;
-  /* height: 80vh; */
-}
-
-.try-these-options {
-  background-color: azure;
-  border: 1px solid black;
-  border-radius: 15px;
-  width: 20vw;
-  margin-bottom: 2rem;
+  height: 80vh;
 }
