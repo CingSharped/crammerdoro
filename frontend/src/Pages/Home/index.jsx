@@ -3,10 +3,12 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ReactFullpage from "@fullpage/react-fullpage";
 
+
 import scroll from '../../assets/scroll down.png'
-import bkgd from '../../assets/Cramodoro.png'
+import './home.css'
 
 const Home = () => {
+  
   return (
     <>
 
@@ -17,14 +19,22 @@ const Home = () => {
           return (
             <ReactFullpage.Wrapper>
               <div className="section homepage">
-                <h2>Home</h2>
-
-                <div className='left-container'>
-                  <Button className='get-started' variant="outline-info" size='lg'><Link to="/login" style={{ textDecoration: 'none' }}>Get Started</Link></Button>
-                </div>
-
-                <div className='right-container'>
-                  <Button variant="outline-info" size='lg'><Link to="/login" style={{ textDecoration: 'none' }}>Right</Link></Button>
+                <div className='landing'>
+                  <div className='landing-left' style={{width:'50vw'}}>
+                    <img src="Cramodoro.png" id='cramodoro-image'/>
+                    <h5 id='intro'> Whether you're a student or a professional we have the perfect tools to expand your mind and master new subjects, with the help of our built-in pomodoro timer feature will help you stay focused and maximise your study or work sessions. </h5>
+                    <div className='btn-holder'>
+                      <Link to='/register'>
+                        <button className='landing-btn' id='signup-btn'>Sign Up</button>
+                      </Link>
+                      <Link to='/login'>
+                        <button className='landing-btn' id='login-btn'>Login</button>
+                      </Link>
+                    </div>
+                  </div>
+                  <div className='landing-right' style={{width:'50vw'}}>
+                    <img src="man-at-desk.jpeg" id='studying-image'/>
+                  </div>
                 </div>
               </div>
 
@@ -35,17 +45,9 @@ const Home = () => {
                 <h2>Villains</h2>
               </div>
             </ReactFullpage.Wrapper>
-          );
+           );
         }}
-      />
-
-      {/* <div className='homepage'>
-
-
-        <div>
-          <img src={scroll} alt="scroll-down" style={{ width: '1.5%', transform: 'translate(0vh, 32vh)', justifyContent: 'center' }} />
-        </div>
-      </div> */}
+      /> 
     </>
   )
 }

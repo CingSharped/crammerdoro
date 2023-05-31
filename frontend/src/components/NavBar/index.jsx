@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { Outlet } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 
 import logo from '../../assets/Cramodoro Favicon.png'
 
@@ -17,8 +17,8 @@ const PageWrapper = () => {
         <header>
             <Navbar bg="light" expand="lg" fixed="top">
                 <Container fluid>
-                    <img src={logo} alt="Music App Logo" className="logo" style={{ width: '4%', marginRight: '20px' }} />
-                    <Navbar.Brand href="/">CRAMODORO</Navbar.Brand>
+                        <img src={logo} alt="Music App Logo" className="logo" style={{ width: '4%', marginRight: '20px' }} />
+                    <Navbar.Brand as={NavLink} to='/' >CRAMODORO</Navbar.Brand>
 
                     <Form className="d-flex mx-5">
                         <Form.Control
@@ -35,8 +35,8 @@ const PageWrapper = () => {
                         <PomodoroTimer />
 
 
-                        <Nav.Link href="/" style={{ styles }}>Home</Nav.Link>
-                        <Nav.Link href="/dashboard" style={{ styles }}>Dashboard</Nav.Link>
+                        <Nav.Link as={NavLink} to='/' style={{ styles }}>Home</Nav.Link>
+                        <Nav.Link as={NavLink} to='/dashboard' style={{ styles }}>Dashboard</Nav.Link>
 
                         <NavDropdown title="Subjects" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#action3">
@@ -56,12 +56,9 @@ const PageWrapper = () => {
                             </NavDropdown.Item>
                         </NavDropdown>
 
-                        <Nav.Link href="/Quiz" style={{ styles }} >Quizzes</Nav.Link>
-                        <Nav.Link href="/flashcards" style={{ styles }} >Flashcards</Nav.Link>
+                        <Nav.Link as={NavLink} to='/dashboard' style={{ styles }} disabled>Quizzes</Nav.Link>
+                        <Nav.Link as={NavLink} to='/flashcards' style={{ styles }} >Flashcards</Nav.Link>
 
-                   
-
-                      
 
 
                     </Nav>
