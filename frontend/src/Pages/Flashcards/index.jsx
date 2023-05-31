@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import { useAuth } from '../../context';
-import FlashcardLinks from '../../components/FlashcardLinks';
+import { useAuth, useFlashcard } from '../../context';
+import FlashcardLinks from '../../components';
 
 const Flashcards = () => {
   const { user } = useAuth();
-  const [flashcards, setFlashcards] = useState([]);
-  const [subjects, setSubjects] = useState([]);
+  const { flashcards, setFlashcards } = useFlashcard()
+  const { subjects, setSubjects } = useFlashcard();
 
   useEffect(() => {
     const fetchFlashcards = async () => {
@@ -26,6 +26,7 @@ const Flashcards = () => {
   useEffect(() => {
     const uniqueSubjects = Array.from(new Set(flashcards.map(flashcard => flashcard.subject)));
     setSubjects(uniqueSubjects);
+    // console.log(flashcards);
   }, [flashcards]);
 
   return (
