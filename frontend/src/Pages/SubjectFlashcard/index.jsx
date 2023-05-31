@@ -15,9 +15,6 @@ const SubjectFlashcard = () => {
     (flashcard) => flashcard.subject === subject.subject
   );
 
-  console.log(filteredFlashcards);
-  // const { question, answer } = flashcards[subject];
-
   return (
     <div className='page-container'>
       {filteredFlashcards.map((flashcard) => (
