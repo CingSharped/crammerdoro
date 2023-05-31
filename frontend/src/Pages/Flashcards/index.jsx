@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import { useAuth, useFlashcard } from '../../context';
-import {FlashcardLinks} from '../../components';
+import { FlashcardLinks } from '../../components';
 
 const Flashcards = () => {
   const { user } = useAuth();
