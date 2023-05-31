@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { Outlet, NavLink } from 'react-router-dom';
+import { Outlet, NavLink, useNavigate } from 'react-router-dom';
+
+import { useAuth } from '../../context';
 
 import logo from '../../assets/Cramodoro Favicon.png'
 
@@ -13,6 +15,14 @@ import { PomodoroTimer } from '..'
 const styles = ({ isActive }) => ({ color: isActive ? '#ECD444' : 'black' });
 
 const PageWrapper = () => {
+    const {setUser} = useAuth()
+    const navigate = useNavigate()
+
+    const handleClick = () => {
+        setUser(null)
+        navigate('/')
+    }
+
     return <>
         <header>
             <Navbar bg="light" expand="lg" fixed="top">
@@ -58,7 +68,7 @@ const PageWrapper = () => {
 
                         <Nav.Link as={NavLink} to='/dashboard' style={{ styles }} disabled>Quizzes</Nav.Link>
                         <Nav.Link as={NavLink} to='/flashcards' style={{ styles }} >Flashcards</Nav.Link>
-
+                        <a onClick={handleClick}>Logout</a>
 
 
                     </Nav>
