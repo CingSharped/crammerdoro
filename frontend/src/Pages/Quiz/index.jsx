@@ -1,40 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Link } from 'react-router-dom';
-import '../Quiz/quiz.css';
+import QuizSubjectCard from '../../components/Quizsubjectcard';
 
 
-const Quiz = () => {
-  
-    return (
-      <>
-        <h1>Quizzes</h1>
-        <form>
-          <input type="text" />
-          <button>Add</button>
-          <div className='card-container'>
-            <Link to='/quizsubject/math'>
-              <div className='flashcard'>
-                <h2>Maths</h2>
-              </div>
-            </Link>
-            <Link to='/quizsubject/english'>
-              <div className='flashcard'>
-                <h2>English</h2>
-              </div>
-            </Link>
-            <Link to='/quizsubject/history'>
-              <div className='flashcard'>
-                <h2>History</h2>
-              </div>
-            </Link>
-            <div className='flashcard'>
-              <h2>Add</h2>
-            </div>
+const QuizPage = () => {
+  return (
+    <>
+      <h1>Quizzes</h1>
+      <form>
+        <input type="text" />
+        <button>Add</button>
+        <div className='card-container'>
+          <QuizSubjectCard subject='Maths' />
+          <QuizSubjectCard subject='English' />
+          <QuizSubjectCard subject='History' />
+          <div className='quizcard'>
+            <h2>Add</h2>
           </div>
-        </form>
-      </>
-    )
-  }
-  
-  export default Quiz
+        </div>
+      </form>
+    </>
+  );
+};
+
+export default QuizPage;
+

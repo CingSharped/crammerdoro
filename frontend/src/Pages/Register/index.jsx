@@ -20,27 +20,24 @@ const Register = () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                fullname,
                 username,
                 password,
             }),
         };
 
         try {
-            const response = await fetch('https://socialsync-api.onrender.com/users/register', options);
+            const response = await fetch('http://localhost:3000/users/signup', options);
             const data = await response.json();
 
             if (response.status === 201) {
                 navigate('/login'); // Navigate to the login page after successful registration
             } else {
                 // Handle registration error
-                alert(data.error);
+                alert('User already exsists');
             }
         } catch (error) {
             console.error('Registration failed:', error);
         }
-
-        window.history.push('/login');
     };
 
     return (
@@ -53,18 +50,6 @@ const Register = () => {
                             <h2>Register</h2>
                         </div>
                         <Form onSubmit={handleRegister}>
-
-                            <Form.Group controlId="fullname" className="form-group">
-                                <Form.Label>Full Name:</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    value={fullname}
-                                    onChange={(e) => setFullname(e.target.value)}
-                                    required
-                                    autoFocus
-                                />
-                            </Form.Group>
-
 
                             <Form.Group controlId="username" className="form-group">
                                 <Form.Label>Username:</Form.Label>

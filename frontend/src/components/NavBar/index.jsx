@@ -3,7 +3,7 @@ import { Button, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstr
 import { Outlet } from 'react-router-dom';
 
 import logo from '../../assets/Cramodoro Favicon.png'
-import timer from '../../assets/timer.png'
+
 
 
 import { PomodoroTimer } from '..'

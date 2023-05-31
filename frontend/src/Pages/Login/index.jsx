@@ -26,13 +26,12 @@ const Login = () => {
         };
 
         try {
-            const response = await fetch('https://socialsync-api.onrender.com/users/login', options);
+            const response = await fetch('http://localhost:3000/users/login', options);
             const data = await response.json();
 
             if (response.status === 200) {
                 localStorage.setItem('token', data.token);
-                localStorage.setItem('authenticated', data.authenticated);
-                navigate('/dashbaord'); // Navigate to the homepage after successful login
+                navigate('/dashboard');
             } else {
                 alert(data.error);
             }
@@ -40,8 +39,7 @@ const Login = () => {
             console.error('Login failed:', error);
         }
 
-        localStorage.setItem('token', 'your-auth-token');
-        window.history.push('/dashboard');
+
 
     };
 
