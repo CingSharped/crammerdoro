@@ -6,15 +6,15 @@ import './subjectFlashcard.css'
 
 const SubjectFlashcard = () => {
   const flashcardDummy = {
-    english: {
+    English: {
       question: "Who is the author of the famous novel 'Pride and Prejudice'?",
       answer: "Jane Austen"
     },
-    math: {
+    Maths: {
       question: "What is the value of π (pi) to two decimal places?",
       answer: "3.14"
     },
-    history: {
+    History: {
       question: "Which year did World War II end?",
       answer: "1945"
     }
