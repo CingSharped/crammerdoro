@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import { useAuth, useFlashcard } from '../../context';
-import FlashcardLinks from '../../components';
+import {FlashcardLinks} from '../../components';
 
 const Flashcards = () => {
   const { user } = useAuth();
-  const { flashcards, setFlashcards } = useFlashcard()
-  const { subjects, setSubjects } = useFlashcard();
+  const { flashcards, setFlashcards, subjects, setSubjects } = useFlashcard()
 
   useEffect(() => {
     const fetchFlashcards = async () => {
