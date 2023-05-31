@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
+import { useAuth } from '../../context';
 
 import logo from '../../assets/Cramodoro Logo.png'
 
@@ -9,28 +11,33 @@ const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const { user, setUser } = useAuth();
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        const options = {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username,
-                password,
-            }),
-        };
 
         try {
-            const response = await fetch('http://localhost:3000/users/login', options);
-            const data = await response.json();
+            const response = await axios.post('https://crammerdoro-backend.onrender.com/users/login', {
+                username,
+                password,
+            }, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            const data = response.data;
 
             if (response.status === 200) {
-                localStorage.setItem('token', data.token);
+                const { username, _id, token } = data;
+                setUser({
+                    username,
+                    _id,
+                    token
+                });
+                // console.log(user);
                 navigate('/dashboard');
             } else {
                 alert(data.error);
@@ -38,8 +45,6 @@ const Login = () => {
         } catch (error) {
             console.error('Login failed:', error);
         }
-
-
 
     };
 

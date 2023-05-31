@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-import { Flashcard } from '../../components'
+import { useAuth } from '../../context';
+
 
 const Flashcards = () => {
-
   return (
     <>
       <h1>Flashcards</h1>
@@ -12,7 +12,7 @@ const Flashcards = () => {
         <input type="text" />
         <button>Add</button>
         <div className='card-container'>
-          <Link to='/subjectflashcard/math'>
+          <Link to='/subjectflashcard/maths'>
             <div className='flashcard'>
               <h2>Maths</h2>
             </div>

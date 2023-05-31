@@ -28,6 +28,11 @@ describe('NavBar', () => {
     expect(appName).toBeInTheDocument();
   });
 
+  it('Should have homelink', () => {
+    const homeLink = screen.getByRole('link', { name: /home/i});
+    expect(homeLink).toBeInTheDocument();
+  });
+
   it('Should have dashboard link', () => {
     const dashboardLink = screen.getByRole('link', { name: /dashboard/i});
     expect(dashboardLink).toBeInTheDocument();
@@ -37,4 +42,11 @@ describe('NavBar', () => {
     const flashcardLink = screen.getByRole('link', { name: /flashcard/i});
     expect(flashcardLink).toBeInTheDocument();
   });
+
+  it('Should have Quizzes link', () => {
+    const quizLink = screen.getByRole('link', { name: /quiz/i});
+    expect(quizLink).toBeInTheDocument();
+  });
 })
+
+

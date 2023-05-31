@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import logo from '../../assets/Cramodoro Logo.png'
 
@@ -12,33 +13,25 @@ const Register = () => {
 
     const handleRegister = async (e) => {
         e.preventDefault();
-
-        const options = {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username,
-                password,
-            }),
+      
+        const requestData = {
+          username,
+          password,
         };
-
+      
         try {
-            const response = await fetch('http://localhost:3000/users/signup', options);
-            const data = await response.json();
-
-            if (response.status === 201) {
-                navigate('/login'); // Navigate to the login page after successful registration
-            } else {
-                // Handle registration error
-                alert('User already exsists');
-            }
+          const response = await axios.post('https://crammerdoro-backend.onrender.com/users/signup', requestData);
+      
+          if (response.status === 201) {
+            navigate('/login'); 
+          } else {
+            alert('User already exists');
+          }
         } catch (error) {
-            console.error('Registration failed:', error);
+          console.error('Registration failed:', error);
         }
     };
+      
 
     return (
         <div className="container">

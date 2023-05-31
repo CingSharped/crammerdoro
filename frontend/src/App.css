@@ -20,15 +20,15 @@ body {
 }
 
 .homepage {
-  background-image: url('./assets/Cramodoro.png');
+  background-image: url('Cramodoro.png');
   background-size: 50%;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: left;
+  background-position: left center;
 }
 
 .dashboard {
-  background-image: url('./assets/Cramodoro.png');
+  background-image: url('Cramodoro.png');
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -41,7 +41,9 @@ body {
   float: left;
   display: flex;
   justify-content: center;
+  align-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .right-container {
@@ -50,21 +52,9 @@ body {
   float: right;
   display: flex;
   justify-content: center;
+  align-content: center;
   align-items: center;
-}
-
-.studying {
-  transform: translate(0vh, 5vh);
-  width: 90%;
-}
-
-.login-btn {
-  margin-right: 5vw;
-  margin-top: 40vw;
-}
-
-.register-btn {
-  margin-top: 40vw;
+  flex-wrap: wrap;
 }
 
 .subject-dropdown {
@@ -93,4 +83,19 @@ body {
   border-radius: 25px;
   width: 80vw;
   height: 80vh;
+}
+
+.try-these {
+  background-color: azure;
+  border: 1px solid black;
+  border-radius: 25px;
+  width: 80vw;
+}
+
+.try-these-options {
+  background-color: azure;
+  border: 1px solid black;
+  border-radius: 25px;
+  width: 20vw;
+  margin-bottom: 5vh;
 }
