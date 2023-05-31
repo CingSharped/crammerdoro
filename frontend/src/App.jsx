@@ -22,7 +22,7 @@ const App = () => {
             <Route path="/subjectflashcard/:subject" element={<Pages.SubjectFlashcard />} />
           </Route>
           <Route path="/quiz" element={<Pages.Quiz />} />
-          <Route path="/quizsubject" element={<Pages.QuizSubject />} />
+          <Route path="/quiz/:subject" element={<Pages.QuizSubject />} />
           <Route index element={<Pages.Home />} />
           <Route path="/login" element={<Pages.Login />} />
           <Route path="/register" element={<Pages.Register />} />
