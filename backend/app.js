@@ -4,8 +4,9 @@ const logger = require("morgan");
 
 const app = express();
 
-const flashcardRoutes = require('./routers/flashcards')
 const userRoutes = require('./routers/users')
+const flashcardRoutes = require('./routers/flashcards')
+const reviewRoutes = require('./routers/reviews')
 
 app.use(cors());
 app.use(express.json());
@@ -21,6 +22,9 @@ app.use('/users', userRoutes)
 
 // Flashcard Routes
 app.use('/flashcards', flashcardRoutes)
+
+// Review Routes
+app.use('/reviews', reviewRoutes)
 
 
 module.exports = app
