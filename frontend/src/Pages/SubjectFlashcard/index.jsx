@@ -2,9 +2,14 @@ import React from 'react'
 
 import { Flashcard } from '../../components'
 import { useParams } from 'react-router-dom';
+
+import { useFlashcard } from '../../context';
 import './subjectFlashcard.css'
 
 const SubjectFlashcard = () => {
+  const {flashcards, subject} = useFlashcard()
+
+  console.log(flashcards);
   const flashcardDummy = {
     English: {
       question: "Who is the author of the famous novel 'Pride and Prejudice'?",
@@ -20,7 +25,6 @@ const SubjectFlashcard = () => {
     }
   }
 
-  const { subject } = useParams();
   const { question, answer } = flashcardDummy[subject];
 
   return (
