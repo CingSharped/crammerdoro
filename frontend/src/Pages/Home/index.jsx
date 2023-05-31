@@ -20,7 +20,7 @@ const Home = () => {
                 <div className='landing'>
                   <div className='landing-left' style={{width:'50vw'}}>
                     <img src="Cramodoro.png" id='cramodoro-image'/>
-                    <h5 id='intro'> Whether you're a student or a professional we have the perfect tools to expand your mind and master new subjects, with the help of our built-in pomodoro timer feature will help you stay focused and maximize your study or work sessions. </h5>
+                    <h5 id='intro'> Whether you're a student or a professional we have the perfect tools to expand your mind and master new subjects, with the help of our built-in pomodoro timer feature will help you stay focused and maximise your study or work sessions. </h5>
                     <div className='btn-holder'>
                       <Link to='/register'>
                         <button className='landing-btn' id='signup-btn'>Sign Up</button>
