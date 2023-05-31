@@ -34,10 +34,37 @@ const Flashcards = () => {
       <form>
         <input type="text" />
         <button>Add</button>
+<<<<<<< HEAD
+=======
+        <div className='card-container'>
+          <Link to='/subjectflashcard/maths'>
+            <div className='flashcard'>
+              <h2>Maths</h2>
+            </div>
+          </Link>
+          <Link to='/subjectflashcard/english'>
+            <div className='flashcard'>
+              <h2>English</h2>
+            </div>
+          </Link>
+          <Link to='/subjectflashcard/history'>
+            <div className='flashcard'>
+              <h2>History</h2>
+            </div>
+          </Link>
+          <div className='flashcard'>
+            <h2>Add</h2>
+          </div>
+        </div>
+>>>>>>> 5995d34079b6114fbd657c24619a1a8e9d796bfa
       </form>
       <FlashcardLinks subjects={subjects} />
     </>
   );
 };
 
+<<<<<<< HEAD
 export default Flashcards;
+=======
+export default Flashcards
+>>>>>>> 5995d34079b6114fbd657c24619a1a8e9d796bfa
