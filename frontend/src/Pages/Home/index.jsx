@@ -4,12 +4,9 @@ import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import ReactFullpage from "@fullpage/react-fullpage";
 
-
-import scroll from '../../assets/scroll down.png'
 import './home.css'
 
 const Home = () => {
-
   return (
     <>
       <ReactFullpage
@@ -52,11 +49,11 @@ const Home = () => {
                 <div className='right-container'>
 
                 </div>
-
+            
               </div>
 
             </ReactFullpage.Wrapper>
-          );
+           );
         }}
       />
     </>

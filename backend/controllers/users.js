@@ -9,11 +9,11 @@ const createToken = (_id) => {
 const loginUser = async (req, res) => {
   const { username, password } = req.body;
   try {
-    const user = await User.login(username.toLowerCase(), password);
+    const { _id } = await User.login(username.toLowerCase(), password);
 
-    const token = createToken(user._id);
+    const token = createToken(_id);
 
-    res.status(200).json({ username, token });
+    res.status(200).json({ _id , username, token });
   } catch (error) {
     res.status(400).json(error.message);
   }
@@ -24,11 +24,11 @@ const loginUser = async (req, res) => {
 const signupUser = async (req, res) => {
   const { username, password } = req.body;
   try {
-    const user = await User.signup(username.toLowerCase(), password);
+    const { _id } = await User.signup(username.toLowerCase(), password);
 
-    const token = createToken(user._id);
+    const token = createToken(_id);
 
-    res.status(200).json({ username, token });
+    res.status(201).json({ _id, username, token });
   } catch (error) {
     res.status(400).json(error.message);
   }

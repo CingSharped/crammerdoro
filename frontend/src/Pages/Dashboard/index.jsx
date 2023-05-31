@@ -3,6 +3,7 @@ import { Button, Dropdown, DropdownButton } from 'react-bootstrap';
 import ReactFullpage from "@fullpage/react-fullpage";
 
 import './dashboard.css'
+import { useAuth } from '../../context';
 import Review from '../../components/Review';
 import TryThese from '../../components/TryThese';
 
@@ -12,7 +13,9 @@ const Dashboard = () => {
   const handleSubjectSelect = (subject) => {
     setSelectedSubject(subject);
   };
-
+  
+  const {user} = useAuth()
+  
   return (
     <>
       <div className="dashboard">
@@ -25,7 +28,10 @@ const Dashboard = () => {
 
                 <div className="section">
                   <div className='left-container'>
-                    <DropdownButton
+              
+              <h1>Welcome, <br /> {user.username}</h1>
+
+                <DropdownButton
                       id="dropdown-basic-button"
                       size="lg"
                       title={selectedSubject}
