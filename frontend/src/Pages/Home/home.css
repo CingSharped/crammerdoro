@@ -1,3 +1,7 @@
+*{
+  color: rgb(60, 60, 60);
+}
+
 h1 {
   margin-top: 100px;
 }
@@ -21,7 +25,7 @@ h1 {
 }
 
 .btn-holder {
-  transform: translateY(-20vw) translateX(5.5vw);
+  transform: translateY(-20vw) translateX(5vw);
 
 }
 
@@ -29,19 +33,23 @@ h1 {
   width: 10vw;
   padding: 10px 15px;
   margin-right: 1.5rem;
-  border-style: solid 1px;
+  border: 2px solid black; 
   box-shadow: none;
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 100px;
   font-size: 1.3vw;
 }
 
 #signup-btn {
   color: #fff;
   background: linear-gradient(45deg, #202f2f, #00ffb7);
-
   background-size: 200% 100%;
-  animation: gradientMovement 5s linear infinite;
+  transition: background-position 0.3s ease-in-out;
+}
+
+#signup-btn:hover {
+  background-position: right;
+  animation: gradientMovement 2s linear infinite;
 }
 
 @keyframes gradientMovement {
@@ -58,9 +66,21 @@ h1 {
   }
 }
 
+#login-btn {
+  background: white;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#login-btn:hover {
+  background-color: #d8d8d8;
+}
+
+
+
+
 #intro{
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 1rem;
   transform: translateY(-28vw) translateX(10vw);
   width: 40vw;
 }
@@ -70,7 +90,7 @@ h1 {
   width: 30vw;
   border-radius: 8px;
   transform: translateY(1.5vw);
-
+  border: 2px solid rgb(94, 94, 94);
 }
 
 @media (min-width: 1670px) {
@@ -81,3 +101,10 @@ h1 {
 
   }
 }
+
+@media (min-width: 2010px){
+  #intro{
+    transform: translateY(-26vw) translateX(10vw);
+  }
+}
+

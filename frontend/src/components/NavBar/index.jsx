@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 
 import logo from '../../assets/Cramodoro Favicon.png'
 
@@ -17,8 +17,8 @@ const PageWrapper = () => {
         <header>
             <Navbar bg="light" expand="lg" fixed="top">
                 <Container fluid>
-                    <img src={logo} alt="Music App Logo" className="logo" style={{ width: '4%', marginRight: '20px' }} />
-                    <Navbar.Brand href="/">CRAMODORO</Navbar.Brand>
+                        <img src={logo} alt="Music App Logo" className="logo" style={{ width: '4%', marginRight: '20px' }} />
+                    <Navbar.Brand href="/" >CRAMODORO</Navbar.Brand>
 
                     <Form className="d-flex mx-5">
                         <Form.Control
