@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import ReactFullpage from "@fullpage/react-fullpage";
 
 
@@ -18,7 +19,7 @@ const Home = () => {
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className="section homepage">
+              <div className="section homepage" id='landing'>
                 <div className='landing'>
                   <div className='landing-left' style={{width:'50vw'}}>
                     <img src="Cramodoro.png" id='cramodoro-image'/>
@@ -27,9 +28,9 @@ const Home = () => {
                       <Link to='/register'>
                         <button className='landing-btn' id='signup-btn'>Sign Up</button>
                       </Link>
-                      <Link to='/login'>
-                        <button className='landing-btn' id='login-btn'>Login</button>
-                      </Link>
+                      <HashLink smooth to='#section-2'>
+                        <button className='landing-btn' id='login-btn'>Learn More</button>
+                      </HashLink>
                     </div>
                   </div>
                   <div className='landing-right' style={{width:'50vw'}}>
@@ -38,10 +39,13 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="section">
+              <div className="section" id='section-2'>
+                <HashLink smooth to='#landing'>
+                  <button>top</button>
+                </HashLink>
                 <h2>Heroes</h2>
               </div>
-              <div className="section">
+              <div className="section" id='section-3'>
                 <h2>Villains</h2>
               </div>
             </ReactFullpage.Wrapper>
