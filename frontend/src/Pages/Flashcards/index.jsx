@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-import { Flashcard } from '../../components'
+import { useAuth } from '../../context';
+
 
 const Flashcards = () => {
-  
   return (
     <>
       <h1>Flashcards</h1>

@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Row, Button, Dropdown, DropdownButton } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+import { useAuth } from '../../context';
 
 import scroll from '../../assets/scroll down.png'
 import './dashboard.css'
 
 const Dashboard = () => {
+  const {user} = useAuth()
+
   return (
     <>
       <div className='dashboard'>
-        <h1>Welcome 'user'</h1>
+        <h1>Welcome, <br /> {user.username}</h1>
 
         <DropdownButton id="dropdown-basic-button" size="lg" title="Select a subject" className='subject-dropdown'>
           <Dropdown.Item href="#/action-1">Maths</Dropdown.Item>
