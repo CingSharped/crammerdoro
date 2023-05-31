@@ -37,6 +37,7 @@ const Login = () => {
                     _id,
                     token
                 });
+                // console.log(user);
                 navigate('/dashboard');
             } else {
                 alert(data.error);
