@@ -7,6 +7,16 @@
   margin-top: 100px;
 }
 
+@media (min-width: 1530px) {
+  #root {
+    margin-top: 150px;
+  }
+}
+
+.landing{
+  max-height: 100vh;
+}
+
 body {
   /* background-image: url('./assets/Cramodoro.png'); */
   /* background-size: contain;

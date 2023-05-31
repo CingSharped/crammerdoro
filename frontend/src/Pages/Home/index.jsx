@@ -3,10 +3,12 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ReactFullpage from "@fullpage/react-fullpage";
 
+
 import scroll from '../../assets/scroll down.png'
 import './home.css'
 
 const Home = () => {
+  
   return (
     <>
 
