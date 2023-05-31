@@ -1,0 +1,82 @@
+* {
+  color: rgb(60, 60, 60);
+}
+
+#intro {
+  text-align: center;
+  font-size: 1rem;
+  width: 40vw;
+  margin-top: 50vh;
+}
+
+.btn-holder {
+  display: flex;
+  margin-top: 2vh;
+}
+
+.landing-btn {
+  width: 10vw;
+  padding: 10px 15px;
+  margin-right: 1.5rem;
+  border: 2px solid black;
+  box-shadow: none;
+  font-weight: bold;
+  border-radius: 100px;
+  font-size: 1.3vw;
+}
+
+#signup-btn {
+  color: #fff;
+  background: linear-gradient(45deg, #202f2f, #00ffb7);
+  background-size: 200% 100%;
+  transition: background-position 0.3s ease-in-out;
+}
+
+#signup-btn:hover {
+  background-position: right;
+  animation: gradientMovement 2s linear infinite;
+}
+
+@keyframes gradientMovement {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#login-btn {
+  background: white;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#login-btn:hover {
+  background-color: #d8d8d8;
+}
+
+#studying-image {
+  width: 30vw;
+  border-radius: 8px;
+  transform: translateY(1.5vw);
+  border: 2px solid rgb(94, 94, 94);
+}
+
+@media (min-width: 1670px) {
+  #studying-image {
+    width: 25vw;
+    border-radius: 8px;
+    transform: translateY(2.5vw);
+  }
+}
+
+@media (min-width: 2010px) {
+  #intro {
+    transform: translateY(-26vw) translateX(10vw);
+  }
+}
