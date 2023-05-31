@@ -1,28 +1,21 @@
-*{
+* {
   color: rgb(60, 60, 60);
 }
 
-.landing {
-  /* margin-top: 100px; */
+.homepage {
   display: flex;
   flex-direction: row;
 }
-
-/* .landing-left{
-  display: flex;
-  flex-direction: column;
-} */
 
 #cramodoro-image {
   position: relative;
   z-index: -1;
   width: 80vw;
-  transform: translateX(-10.5vw) translateY(-10rem);
+  margin-top: 11vw;
 }
 
 .btn-holder {
-  transform: translateY(-20vw) translateX(5vw);
-
+  margin-top: 1vw;
 }
 
 .landing-btn {
@@ -62,25 +55,21 @@
   }
 }
 
-#login-btn {
+#learn-btn {
   background: white;
   transition: background-color 0.3s ease-in-out;
 }
 
-#login-btn:hover {
+#learn-btn:hover {
   background-color: #d8d8d8;
 }
 
-
-
-
-#intro{
+#intro {
   text-align: center;
   font-size: 1rem;
-  transform: translateY(-28vw) translateX(10vw);
   width: 40vw;
+  margin-top: 30vw;
 }
-
 
 #studying-image {
   width: 30vw;
@@ -103,4 +92,3 @@
     transform: translateY(-26vw) translateX(10vw);
   }
 }
-

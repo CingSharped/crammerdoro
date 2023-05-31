@@ -10,7 +10,7 @@ const SubjectFlashcard = () => {
       question: "Who is the author of the famous novel 'Pride and Prejudice'?",
       answer: "Jane Austen"
     },
-    math: {
+    maths: {
       question: "What is the value of π (pi) to two decimal places?",
       answer: "3.14"
     },
@@ -25,9 +25,9 @@ const SubjectFlashcard = () => {
 
   return (
     <>
-    <div className='page-container'>
-      <Flashcard question={question} answer={answer} />
-    </div>
+      <div className='page-container'>
+        <Flashcard question={question} answer={answer} />
+      </div>
     </>
   )
 }
