@@ -10,12 +10,12 @@ const Home = () => {
   return (
     <>
 
-      {/* <ReactFullpage
+      <ReactFullpage
         scrollingSpeed={1000}
         scrollHorizontally={true}
         render={() => {
-          return ( */}
-            {/* <ReactFullpage.Wrapper> */}
+          return (
+            <ReactFullpage.Wrapper>
               <div className="section homepage">
                 <div className='landing'>
                   <div className='landing-left' style={{width:'50vw'}}>
@@ -42,10 +42,10 @@ const Home = () => {
               <div className="section">
                 <h2>Villains</h2>
               </div>
-            {/* </ReactFullpage.Wrapper> */}
-          {/* );
+            </ReactFullpage.Wrapper>
+           );
         }}
-      /> */}
+      /> 
     </>
   )
 }
