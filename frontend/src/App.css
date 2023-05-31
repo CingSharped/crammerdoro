@@ -4,13 +4,7 @@
   min-height: 100vh;
   max-height: 100vh;
   max-width: 100vw;
-  margin-top: 100px;
-}
-
-@media (min-width: 1530px) {
-  #root {
-    margin-top: 150px;
-  }
+  margin-top: 200px;
 }
 
 .landing{

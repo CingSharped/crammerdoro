@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 import logo from '../../assets/Cramodoro Logo.png'
@@ -13,23 +14,21 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        const options = {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
+        try {
+            const response = await axios.post('http://localhost:3000/users/login', {
                 username,
                 password,
-            }),
-        };
+            }, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            });
 
-        try {
-            const response = await fetch('http://localhost:3000/users/login', options);
-            const data = await response.json();
+            const data = response.data;
 
             if (response.status === 200) {
+                console.log(data);
                 localStorage.setItem('token', data.token);
                 navigate('/dashboard');
             } else {
@@ -38,8 +37,6 @@ const Login = () => {
         } catch (error) {
             console.error('Login failed:', error);
         }
-
-
 
     };
 
