@@ -20,7 +20,7 @@ const Register = () => {
         };
       
         try {
-          const response = await axios.post('http://localhost:3000/users/signup', requestData);
+          const response = await axios.post('https://crammerdoro-backend.onrender.com/users/signup', requestData);
       
           if (response.status === 201) {
             navigate('/login'); 
