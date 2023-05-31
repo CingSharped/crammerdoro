@@ -7,32 +7,23 @@ import { useFlashcard } from '../../context';
 import './subjectFlashcard.css'
 
 const SubjectFlashcard = () => {
-  const {flashcards, subject} = useFlashcard()
+  const { flashcards } = useFlashcard()
+  const subject = useParams()
 
-  console.log(flashcards);
-  const flashcardDummy = {
-    English: {
-      question: "Who is the author of the famous novel 'Pride and Prejudice'?",
-      answer: "Jane Austen"
-    },
-    Maths: {
-      question: "What is the value of π (pi) to two decimal places?",
-      answer: "3.14"
-    },
-    History: {
-      question: "Which year did World War II end?",
-      answer: "1945"
-    }
-  }
 
-  const { question, answer } = flashcardDummy[subject];
+  const filteredFlashcards = flashcards.filter(
+    (flashcard) => flashcard.subject === subject.subject
+  );
+
+  console.log(filteredFlashcards);
+  // const { question, answer } = flashcards[subject];
 
   return (
-    <>
-      <div className='page-container'>
-        <Flashcard question={question} answer={answer} />
-      </div>
-    </>
+    <div className='page-container'>
+      {filteredFlashcards.map((flashcard) => (
+        <Flashcard key={flashcard.question} question={flashcard.question} answer={flashcard.answer} />
+      ))}
+    </div>
   )
 }
 

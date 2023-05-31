@@ -20,4 +20,4 @@ const FlashcardLinks = ({ subjects }) => {
   );
 };
 
-
+export default FlashcardLinks;
