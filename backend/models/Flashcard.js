@@ -21,7 +21,7 @@ const flashcardSchema = new Schema({
   createdOn: {
     type: Date,
     default: () => Date.now(),
-  },
+  }
 });
 
 flashcardSchema.statics.createFlashcard = async function (
@@ -37,5 +37,15 @@ flashcardSchema.statics.createFlashcard = async function (
 
   return newFlashcard
 };
+
+flashcardSchema.statics.getFlashcardsById = async function(_id) {
+  if (!_id) {
+    throw Error('User _id required')
+  }
+
+  const flashcards = await this.find().where('createdBy').equals(_id)
+  console.log(flashcards)
+  return flashcards
+}
 
 module.exports = mongoose.model("FlashCard", flashcardSchema);

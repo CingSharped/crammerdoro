@@ -1,7 +1,14 @@
 const Flashcard = require("../models/Flashcard");
 
-const getFlashcardsByUser = async (req, res) => {
+const getFlashcardsById = async (req, res) => {
   const { _id } = req.params;
+  
+  try {
+    const flashcards = await Flashcard.getFlashcardsById(_id)
+    res.status(200).json(flashcards)
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
 };
 
 const createFlashcard = async (req, res) => {
@@ -19,5 +26,5 @@ const createFlashcard = async (req, res) => {
 
 module.exports = {
   createFlashcard,
-  getFlashcardsByUser,
+  getFlashcardsById,
 };
