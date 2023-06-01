@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useAuth } from '../../context';
 
 import './trythese.css'
 
 const TryThese = () => {
 
     const [reviews, setReviews] = useState([]);
+    const { user } = useAuth()
 
     useEffect(() => {
-        const user_id = "647750869fe01912632454f8"
-
         const fetchReviews = async () => {
             try {
-                const response = await axios.get(`https://crammerdoro-backend.onrender.com/reviews/${user_id}`);
+                const response = await axios.get(`https://crammerdoro-backend.onrender.com/reviews/${user._id}`);
 
                 console.log('useEffect', response.data);
                 setReviews(response.data);
@@ -53,41 +53,39 @@ const TryThese = () => {
 
     return (
         <>
-            <div className="dashboard">
-                <div className='review-container d-flex'>
-                    <div className='try-these mt-5 align-items-center'>
+            <div className='review-container d-flex'>
+                <div className='try-these mt-5 align-items-center'>
 
-                        <div className="container mt-4">
-                            <h3>Try These</h3>
-                        </div>
-
-                        <div className="options-container col mx-4 d-flex justify-content-around">
-
-                            {sortedReviews.map((review, index) => (
-                                <div className='try-these-options mt-4 mx-4' key={index}>
-                                    <div className='mt-2 fs-2 fw-bold text-uppercase justify-content-center'>
-                                        {review.subject}
-                                    </div>
-
-                                    <div className='mt-2 fs-5'>
-                                        Latest Score: {review.score}
-                                    </div>
-
-                                    <div className='mt-2 fs-5'>
-                                        {getEmoji(review.score)}
-                                    </div>
-
-                                    <Link to={`/subjectflashcard/${review.subject}`}>
-                                        <Button className='mt-2 mb-2' variant='outline-secondary'>
-                                            Learn More
-                                        </Button>
-                                    </Link>
-
-                                </div>
-                            ))}
-                        </div>
-
+                    <div className="container mt-4 mb-4">
+                        <h3>Try These</h3>
                     </div>
+
+                    <div className="options-container col mx-4 d-flex justify-content-around">
+
+                        {sortedReviews.map((review, index) => (
+                            <div className='try-these-options mt-4 mx-4' key={index}>
+                                <div className='mt-2 fs-2 fw-bold text-uppercase justify-content-center'>
+                                    {review.subject}
+                                </div>
+
+                                <div className='mt-2 fs-5'>
+                                    Latest Score: {review.score}
+                                </div>
+
+                                <div className='mt-2 fs-5'>
+                                    {getEmoji(review.score)}
+                                </div>
+
+                                <Link to={`/subjectflashcard/${review.subject}`}>
+                                    <Button className='mt-2 mb-2' variant='outline-secondary'>
+                                        Learn More
+                                    </Button>
+                                </Link>
+
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
             </div>
         </>
