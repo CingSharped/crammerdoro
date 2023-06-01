@@ -10,50 +10,83 @@ const TryThese = () => {
             subject: "English",
             score: 8,
             log: "I felt great about this quiz",
+            createdOn: "2023-01-01"
         },
         {
             subject: "Maths",
             score: 5,
             log: "I felt great about this quiz too",
+            createdOn: "2022-01-01"
         },
         {
             subject: "History",
             score: 1,
             log: "Could have done better",
+            createdOn: "2021-01-01"
         },
         {
             subject: "Science",
             score: 7,
             log: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa reiciendis quidem dolorum ipsum quasi hic ex repellendus assumenda sequi odio! Maxime nemo fugit at reiciendis molestiae eveniet veniam eos in!",
+            createdOn: "2021-02-01"
         },
         {
             subject: "English",
             score: 3,
             log: "I felt great about this quiz",
+            createdOn: "2021-02-01"
         },
         {
             subject: "Maths",
             score: 9,
             log: "I felt great about this quiz too",
+            createdOn: "2021-01-02"
         },
         {
             subject: "Science",
             score: 4,
             log: "Could have done better",
+            createdOn: "2021-01-02"
         },
         {
             subject: "English",
             score: 0,
             log: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa reiciendis quidem dolorum ipsum quasi hic ex repellendus assumenda sequi odio! Maxime nemo fugit at reiciendis molestiae eveniet veniam eos in!",
+            createdOn: "2022-02-02"
+        },
+        {
+            subject: "English",
+            score: 3,
+            log: "I felt great about this quiz",
+            createdOn: "2023-03-03"
+        },
+        {
+            subject: "Maths",
+            score: 9,
+            log: "I felt great about this quiz too",
+            createdOn: "2023-01-01"
+        },
+        {
+            subject: "Science",
+            score: 4,
+            log: "Could have done better",
+            createdOn: "2022-01-01"
         },
         {
             subject: "Maths",
             score: 0,
             log: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa reiciendis quidem dolorum ipsum quasi hic ex repellendus assumenda sequi odio! Maxime nemo fugit at reiciendis molestiae eveniet veniam eos in!",
+            createdOn: "2021-01-01"
         }
     ];
 
     const sortedReviews = reviews.sort((a, b) => a.score - b.score).slice(0, 3);
+
+    function formatDate(dateString) {
+        const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-GB', options);
+    }
 
     // https://unicode.org/emoji/charts/full-emoji-list.html
     const getEmoji = (score) => {
@@ -97,7 +130,7 @@ const TryThese = () => {
                                     {getEmoji(review.score)}
                                 </div>
 
-                                <Link to={`/subjectflashcard/${review.subject.toLowerCase()}`}>
+                                <Link to={`/subjectflashcard/${review.subject}`}>
                                     <Button className='mt-2 mb-2' variant='outline-secondary'>
                                         Learn More
                                     </Button>
