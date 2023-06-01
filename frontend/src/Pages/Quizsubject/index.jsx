@@ -62,7 +62,7 @@ const QuizSubject = () => {
     <div className="quiz-container">
       {showScore ? (
         <div className="score-section">
-          <ReviewForm score={score} subject={subject}/>
+          <ReviewForm score={score} subject={subject} />
         </div>
       ) : (
         <>
@@ -81,6 +81,7 @@ const QuizSubject = () => {
               {answerOptions.map((answerOption, index) => (
                 <button
                   key={index}
+                  className="__btn white-to-green wide-btn"
                   onClick={() => handleAnswerOptionClick(answerOption)}
                 >
                   {answerOption}

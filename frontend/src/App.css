@@ -80,34 +80,6 @@ body {
   margin-right: 1vw;
 }
 
-.review-container {
-  display: flex;
-  justify-content: center;
-}
-
-.review-border {
-  background-color: azure;
-  border: 1px solid black;
-  border-radius: 25px;
-  width: 80vw;
-  height: 80vh;
-}
-
-.try-these {
-  background-color: azure;
-  border: 1px solid black;
-  border-radius: 25px;
-  width: 80vw;
-}
-
-.try-these-options {
-  background-color: azure;
-  border: 1px solid black;
-  border-radius: 25px;
-  width: 20vw;
-  margin-bottom: 5vh;
-}
-
 .__btn {
   width: 10vw;
   padding: 10px 15px;

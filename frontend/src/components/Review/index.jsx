@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { OverlayTrigger, Popover } from 'react-bootstrap';
 import axios from 'axios';
+import { useAuth } from '../../context';
 
 import './review.css'
 
 const Review = () => {
     const [reviews, setReviews] = useState([]);
+    const { user } = useAuth()
 
     useEffect(() => {
-        const user_id = "647750869fe01912632454f8"
 
         const fetchReviews = async () => {
             try {
-                const response = await axios.get(`https://crammerdoro-backend.onrender.com/reviews/${user_id}`);
+                const response = await axios.get(`https://crammerdoro-backend.onrender.com/reviews/${user._id}`);
 
                 console.log('useEffect', response.data);
                 setReviews(response.data);
@@ -51,60 +52,58 @@ const Review = () => {
 
     return (
         <>
-            <div className="dashboard">
-                <div className='review-container d-flex'>
-                    <div className='review-border mt-5'>
+            <div className='review-container d-flex'>
+                <div className='review-border mt-5'>
 
-                        <div className="container mt-4">
-                            <h3>Review</h3>
+                    <div className="container mt-4">
+                        <h3>Review</h3>
+                    </div>
+
+                    <div className="row align-items-center">
+                        <div className="col-md-2 fw-bold fs-3 mt-4 text-white">
+                            Score
                         </div>
-
-                        <div className="row align-items-center">
-                            <div className="col-md-2 fw-bold fs-3 mt-4 text-white">
-                                Score
-                            </div>
-                            <div className="col-md-4 fw-bold fs-3 mt-4 text-white">
-                                Subject
-                            </div>
-                            <div className="col fw-bold fs-3 mt-4 text-white">
-                                Comment
-                            </div>
+                        <div className="col-md-4 fw-bold fs-3 mt-4 text-white">
+                            Subject
                         </div>
+                        <div className="col fw-bold fs-3 mt-4 text-white">
+                            Comment
+                        </div>
+                    </div>
 
-                        {sortedReviews.map((review, index) => (
-                            <div className='row align-items-center' key={index}>
-                                <div className='col-md-2 mt-4 fs-4 fst-bold text-white'>
-                                    {review.score} |  {getEmoji(review.score)}
-                                </div>
-                                <div className='col-md-4 mt-4 fs-4 text-white'>
-                                    {review.subject}
-                                </div>
-                                {review.log.length > 50 ? (
-                                    <OverlayTrigger
-                                        placement='top'
-                                        overlay={
-                                            <Popover>
-                                                <Popover.Header as='h3'>{review.subject} : {getEmoji(review.score)}</Popover.Header>
-                                                <Popover.Body className='pb-0 fst-italic'>"{review.log}"</Popover.Body>
-                                                <Popover.Body className="text-muted fw-lighter" style={{ float: "right" }}>{formatDate(review.createdOn)}</Popover.Body>
-                                            </Popover>
-                                        }
-                                    >
-
-                                        <div className='col mt-4 fs-4 fst-italic text-white'>
-                                            "{review.log.substring(0, 50)}
-                                            <a style={{ color: "red" }}>...</a>"
-                                            <a style={{ color: "red", fontSize: "x-small" }}> (hover)</a>
-                                        </div>
-                                    </OverlayTrigger>
-                                ) : (
-                                    <div className='col mt-4 fs-4 fst-italic text-white'>"{review.log}"</div>
-                                )}
+                    {sortedReviews.map((review, index) => (
+                        <div className='row align-items-center' key={index}>
+                            <div className='col-md-2 mt-4 fs-4 fst-bold text-white'>
+                                {review.score} |  {getEmoji(review.score)}
                             </div>
-                        ))}
-                    </div >
+                            <div className='col-md-4 mt-4 fs-4 text-white'>
+                                {review.subject}
+                            </div>
+                            {review.log.length > 50 ? (
+                                <OverlayTrigger
+                                    placement='top'
+                                    overlay={
+                                        <Popover>
+                                            <Popover.Header as='h3'>{review.subject} : {getEmoji(review.score)}</Popover.Header>
+                                            <Popover.Body className='pb-0 fst-italic'>"{review.log}"</Popover.Body>
+                                            <Popover.Body className="text-muted fw-lighter" style={{ float: "right" }}>{formatDate(review.createdOn)}</Popover.Body>
+                                        </Popover>
+                                    }
+                                >
+
+                                    <div className='col mt-4 fs-4 fst-italic text-white'>
+                                        "{review.log.substring(0, 50)}
+                                        <a style={{ color: "red" }}>...</a>"
+                                        <a style={{ color: "red", fontSize: "x-small" }}> (hover)</a>
+                                    </div>
+                                </OverlayTrigger>
+                            ) : (
+                                <div className='col mt-4 fs-4 fst-italic text-white'>"{review.log}"</div>
+                            )}
+                        </div>
+                    ))}
                 </div >
-            </div>
+            </div >
         </>
     )
 }

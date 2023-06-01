@@ -4,7 +4,7 @@ import { useAuth } from '../../context'
 import axios from 'axios'
 import "./style.css";
 
-const ReviewForm = ({subject, score}) => {
+const ReviewForm = ({ subject, score }) => {
   const [input, setInput] = useState()
   const { user } = useAuth()
   const navigate = useNavigate()
@@ -20,9 +20,7 @@ const ReviewForm = ({subject, score}) => {
       log,
       createdBy: user,
     }
-    console.log(newReview)
     const review = await axios.post("https://crammerdoro-backend.onrender.com/reviews", newReview);
-    console.log(review)
   }
 
   const handleSubmit = (e) => {

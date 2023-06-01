@@ -30,7 +30,7 @@ const Dashboard = () => {
 
                   <div className='dashboard-container'>
                     <div>
-                      <h1>Welcome, <br /> {user.username}</h1>
+                      <h1 className='text-capitalize'>Welcome, <br /> {user.username}</h1>
                     </div>
 
                     <div className='dashboard-btns'>
