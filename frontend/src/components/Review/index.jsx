@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { OverlayTrigger, Popover } from 'react-bootstrap';
 import axios from 'axios';
 
+import './review.css'
+
 const Review = () => {
     const [reviews, setReviews] = useState([]);
 
@@ -49,58 +51,60 @@ const Review = () => {
 
     return (
         <>
-            <div className='review-container d-flex'>
-                <div className='review-border mt-5'>
+            <div className="dashboard">
+                <div className='review-container d-flex'>
+                    <div className='review-border mt-5'>
 
-                    <div className="container mt-4">
-                        <h3>Review</h3>
-                    </div>
+                        <div className="container mt-4">
+                            <h3>Review</h3>
+                        </div>
 
-                    <div className="row align-items-center">
-                        <div className="col fw-bold mt-4">
-                            Subject
-                        </div>
-                        <div className="col fw-bold mt-4">
-                            Score
-                        </div>
-                        <div className="col fw-bold mt-4">
-                            Comment
-                        </div>
-                    </div>
-
-                    {sortedReviews.map((review, index) => (
-                        <div className='row align-items-center' key={index}>
-                            <div className='col mt-4'>
-                                {review.subject}
+                        <div className="row align-items-center">
+                            <div className="col fw-bold mt-4">
+                                Subject
                             </div>
-                            <div className='col mt-4'>
-                                {review.score} |  {getEmoji(review.score)}
+                            <div className="col fw-bold mt-4">
+                                Score
                             </div>
-                            {review.log.length > 50 ? (
-                                <OverlayTrigger
-                                    placement='top'
-                                    overlay={
-                                        <Popover>
-                                            <Popover.Header as='h3'>{review.subject} : {getEmoji(review.score)}</Popover.Header>
-                                            <Popover.Body className='pb-0 fst-italic'>"{review.log}"</Popover.Body>
-                                            <Popover.Body className="text-muted fw-lighter" style={{ float: "right" }}>{formatDate(review.createdOn)}</Popover.Body>
-                                        </Popover>
-                                    }
-                                >
-
-                                    <div className='col mt-4 fst-italic'>
-                                        "{review.log.substring(0, 50)}
-                                        <a style={{ color: "red" }}>...</a>"
-                                        <a style={{ color: "red", fontSize: "x-small" }}> (hover)</a>
-                                    </div>
-                                </OverlayTrigger>
-                            ) : (
-                                <div className='col mt-4 fst-italic'>"{review.log}"</div>
-                            )}
+                            <div className="col fw-bold mt-4">
+                                Comment
+                            </div>
                         </div>
-                    ))}
+
+                        {sortedReviews.map((review, index) => (
+                            <div className='row align-items-center' key={index}>
+                                <div className='col mt-4'>
+                                    {review.subject}
+                                </div>
+                                <div className='col mt-4'>
+                                    {review.score} |  {getEmoji(review.score)}
+                                </div>
+                                {review.log.length > 50 ? (
+                                    <OverlayTrigger
+                                        placement='top'
+                                        overlay={
+                                            <Popover>
+                                                <Popover.Header as='h3'>{review.subject} : {getEmoji(review.score)}</Popover.Header>
+                                                <Popover.Body className='pb-0 fst-italic'>"{review.log}"</Popover.Body>
+                                                <Popover.Body className="text-muted fw-lighter" style={{ float: "right" }}>{formatDate(review.createdOn)}</Popover.Body>
+                                            </Popover>
+                                        }
+                                    >
+
+                                        <div className='col mt-4 fst-italic'>
+                                            "{review.log.substring(0, 50)}
+                                            <a style={{ color: "red" }}>...</a>"
+                                            <a style={{ color: "red", fontSize: "x-small" }}> (hover)</a>
+                                        </div>
+                                    </OverlayTrigger>
+                                ) : (
+                                    <div className='col mt-4 fst-italic'>"{review.log}"</div>
+                                )}
+                            </div>
+                        ))}
+                    </div >
                 </div >
-            </div >
+            </div>
         </>
     )
 }

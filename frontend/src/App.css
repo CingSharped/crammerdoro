@@ -1,10 +1,9 @@
 #root {
   margin: 0 auto;
   text-align: center;
-  min-height: 100vh;
-  max-height: 100vh;
+  /* min-height: 100vh;
+  max-height: 100vh; */
   max-width: 100vw;
-  /* margin-top: 200px; */
 }
 
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
@@ -21,110 +20,9 @@
 }
 
 body {
-  /* background-image: url('./assets/Cramodoro.png'); */
-  /* background-size: contain;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center; */
   max-height: 100vh;
 }
 
 .navbar-nav {
   align-items: center;
-}
-
-.homepage {
-  background-image: url('Cramodoro.png');
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: top left center;
-}
-
-.dashboard {
-  background-image: url('Cramodoro.png');
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  margin-top: 200px;
-}
-
-.dashboard-container {
-  width: 100vw;
-  height: 90vh;
-  float: left;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: space-between;
-}
-
-.dashboard-btns {
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15rem;
-}
-
-.left-container {
-  width: 50vw;
-  height: 90vh;
-  float: left;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.right-container {
-  width: 50vw;
-  height: 90vh;
-  float: right;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.subject-dropdown {
-  margin-right: 1vw;
-}
-
-.quiz-button {
-  margin-right: 1vw;
-}
-
-.flashcards-button {
-  margin-right: 1vw;
-}
-
-.review-container {
-  display: flex;
-  justify-content: center;
-}
-
-.review-border {
-  background-color: azure;
-  border: 1px solid black;
-  border-radius: 25px;
-  width: 80vw;
-  padding-bottom: 5vh;
-}
-
-.try-these {
-  background-color: azure;
-  border: 1px solid black;
-  border-radius: 25px;
-  width: 80vw;
-}
-
-.try-these-options {
-  background-color: azure;
-  border: 1px solid black;
-  border-radius: 25px;
-  width: 20vw;
-  margin-bottom: 5vh;
 }

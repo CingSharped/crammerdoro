@@ -1,0 +1,19 @@
+.review-container {
+    display: flex;
+    justify-content: center;
+}
+
+.try-these {
+    background-color: azure;
+    border: 1px solid black;
+    border-radius: 25px;
+    width: 80vw;
+}
+
+.try-these-options {
+    background-color: azure;
+    border: 1px solid black;
+    border-radius: 25px;
+    width: 20vw;
+    margin-bottom: 5vh;
+}

@@ -40,15 +40,15 @@ const Flashcards = () => {
 
   return (
     <>
-      <div>
+      <div className='flashcard-container'>
         <input
           type="text"
           value={searchValue}
           onChange={handleSearchChange}
           placeholder="Search subjects"
         />
+        <FlashcardLinks subjects={filteredSubjects} />
       </div>
-      <FlashcardLinks subjects={filteredSubjects} />
     </>
   );
 };
