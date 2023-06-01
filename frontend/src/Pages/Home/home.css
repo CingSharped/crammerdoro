@@ -52,7 +52,7 @@
 
 #signup-btn {
   color: #fff;
-  background: linear-gradient(45deg, #202f2f, #00ffb7);
+  background: linear-gradient(45deg, #365050, #00ffb7);
   background-size: 200% 100%;
   transition: background-position 0.3s ease-in-out;
 }
