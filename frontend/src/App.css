@@ -29,7 +29,7 @@ body {
   background-size: 50%;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: left center;
+  background-position: top left center;
 }
 
 .dashboard {

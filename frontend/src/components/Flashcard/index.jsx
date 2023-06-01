@@ -8,8 +8,8 @@ const Flashcard = ({ question, answer }) => {
   };
 
   return (
-    <div className="_card" onClick={handleCardFlip}>
-      <div className={`card-inner ${isFlipped ? 'flipped' : ''}`}>
+    <div className="_card" onClick={handleCardFlip} data-testid="flashcard">
+      <div className={`card-inner ${isFlipped ? 'flipped' : ''}`} data-testid="inner-flashcard">
         <div className="card-front">
           <p> <strong>Question:</strong> {question}</p>
         </div>
