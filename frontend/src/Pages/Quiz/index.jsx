@@ -11,7 +11,7 @@ const QuizPage = () => {
         <button>Add</button>
         <div className='card-container'>
           <QuizSubjectCard subject='Maths' />
-          <QuizSubjectCard subject='English' />
+          <QuizSubjectCard subject='Science' />
           <QuizSubjectCard subject='History' />
           <div className='quizcard'>
             <h2>Add</h2>
