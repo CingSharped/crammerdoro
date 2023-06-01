@@ -38,3 +38,6 @@ Environment variable | value
 ## To do
 
 
+# Usage #
+1) Run npm run dev
+2) Open the app in your browser at http://localhost:3000.

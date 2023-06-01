@@ -8,3 +8,4 @@ export { default as TryThese } from './TryThese';
 export { default as AddCardModal } from './AddCardModal'
 export { default as BootstrapAlert } from './BootstrapAlert'
 
+export { default as ReviewForm } from './ReviewForm'

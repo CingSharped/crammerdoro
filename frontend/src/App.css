@@ -127,7 +127,7 @@ body {
   transition: background-position 0.3s ease-in-out;
 }
 
-.primary:hover {
+.primary-btn:hover {
   background-position: right;
   animation: gradientMovement 2s ease infinite;
 }
