@@ -4,15 +4,16 @@ import Modal from 'react-bootstrap/Modal';
 
 import axios from 'axios';
 
-import { useAuth } from '../../context';
+import { useAuth, useFlashcard } from '../../context';
 import './addCardModal.css'
 
-function AddCardModal({setFlashcards}) {
+function AddCardModal() {
   const [show, setShow] = useState(false);
   const [questionValue, setQuestionValue] = useState('');
   const [answerValue, setAnswerValue] = useState('');
   const [selectedSubject, setSelectedSubject] = useState('Maths');
   const { user } = useAuth()
+  const {setFlashcards} = useFlashcard()
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

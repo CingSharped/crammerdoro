@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import AddCardModal from '../AddCardModal';
 
-const FlashcardLinks = ({ subjects, setFlashcards }) => {
+const FlashcardLinks = ({ subjects }) => {
   return (
     <>
       <div className='card-container'>
@@ -14,7 +14,7 @@ const FlashcardLinks = ({ subjects, setFlashcards }) => {
             </div>
           </Link>
         ))}
-          <AddCardModal setFlashcards={setFlashcards} />
+          <AddCardModal />
       </div>
     </>
   );
