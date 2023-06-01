@@ -1,46 +1,74 @@
-import React, { useState } from 'react'
-import { Row, Button, Dropdown, DropdownButton } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Button, Dropdown, DropdownButton } from 'react-bootstrap';
+import ReactFullpage from "@fullpage/react-fullpage";
 
-import { useAuth } from '../../context';
-
-import scroll from '../../assets/scroll down.png'
 import './dashboard.css'
+import { useAuth } from '../../context';
+import Review from '../../components/Review';
+import TryThese from '../../components/TryThese';
 
 const Dashboard = () => {
-  const {user} = useAuth()
+  const [selectedSubject, setSelectedSubject] = useState('Select a subject');
 
+  const handleSubjectSelect = (subject) => {
+    setSelectedSubject(subject);
+  };
+  
+  const {user} = useAuth()
+  
   return (
     <>
-      <div className='dashboard'>
-        <h1>Welcome, <br /> {user.username}</h1>
+      <div className="dashboard">
+        <ReactFullpage
+          scrollingSpeed={1000}
+          scrollHorizontally={true}
+          render={() => {
+            return (
+              <ReactFullpage.Wrapper>
 
-        <DropdownButton id="dropdown-basic-button" size="lg" title="Select a subject" className='subject-dropdown'>
-          <Dropdown.Item href="#/action-1">Maths</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Science</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">History</Dropdown.Item>
-          <Dropdown.Item href="#/action-4">Geography</Dropdown.Item>
-        </DropdownButton>
+                <div className="section">
+                  <div className='left-container'>
+              
+              <h1>Welcome, <br /> {user.username}</h1>
 
-        <Button variant="outline-primary" size="lg" className='quiz-button'>Quiz</Button>
-        <Button variant="outline-primary" size="lg" className='flashcards-button'>Flashcards</Button>
+                <DropdownButton
+                      id="dropdown-basic-button"
+                      size="lg"
+                      title={selectedSubject}
+                      className='subject-dropdown'
+                    >
+                      <Dropdown.Item onClick={() => handleSubjectSelect('Select a subject')}>Reset</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleSubjectSelect('All')}>All</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleSubjectSelect('Maths')}>Maths</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleSubjectSelect('Science')}>Science</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleSubjectSelect('History')}>History</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleSubjectSelect('Geography')}>Geography</Dropdown.Item>
+                    </DropdownButton>
 
-        <div className='review-section'>
-          <h3>Review</h3>
-          <div className='review-container'>
-            <div className='review-border'>
+                    <Button variant="outline-primary" size="lg" className='quiz-button'>Quiz</Button>
+                    <Button variant="outline-primary" size="lg" className='flashcards-button'>Flashcards</Button>
+                  </div>
 
-            </div>
-          </div>
-        </div>
+                  <div className='right-container'>
 
-        <img src={scroll} alt="scroll-down" style={{ width: '1.5%', transform: 'translate(0vw, 75vh)', justifyContent: 'center' }} />
+                  </div>
+                </div>
 
+                <div className="section">
+                  <TryThese />
+                </div>
+
+                <div className="section">
+                  <Review />
+                </div>
+
+              </ReactFullpage.Wrapper >
+            );
+          }}
+        />
       </div>
     </>
   )
 }
 
-
-export default Dashboard
-
+export default Dashboard;

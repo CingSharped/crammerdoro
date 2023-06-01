@@ -16,7 +16,7 @@ const styles = ({ isActive }) => ({ color: isActive ? '#ECD444' : 'black' });
 const PageWrapper = () => {
     const {user, setUser} = useAuth()
     const navigate = useNavigate()
-
+    
     const handleLogout = () => {
         setUser(null)
         navigate('/')

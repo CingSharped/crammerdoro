@@ -1,34 +1,29 @@
-*{
+* {
   color: rgb(60, 60, 60);
 }
 
-.landing {
-  /* margin-top: 100px; */
+.homepage {
   display: flex;
   flex-direction: row;
 }
-
-/* .landing-left{
-  display: flex;
-  flex-direction: column;
-} */
 
 #cramodoro-image {
   position: relative;
   z-index: -1;
   width: 80vw;
-  transform: translateX(-10.5vw) translateY(-10rem);
+  margin-top: 11vw;
 }
 
 .btn-holder {
-  transform: translateY(-20vw) translateX(5vw);
-
+  margin-top: 1vw;
+  
 }
 
 .landing-btn {
   width: 10vw;
   padding: 10px 15px;
   margin-right: 1.5rem;
+  margin-top: 3rem;
   border: 2px solid black; 
   box-shadow: none;
   font-weight: bold;
@@ -45,7 +40,7 @@
 
 #signup-btn:hover {
   background-position: right;
-  animation: gradientMovement 2s linear infinite;
+  animation: gradientMovement 2s ease infinite;
 }
 
 @keyframes gradientMovement {
@@ -62,25 +57,21 @@
   }
 }
 
-#login-btn {
+#learn-btn {
   background: white;
   transition: background-color 0.3s ease-in-out;
 }
 
-#login-btn:hover {
-  background-color: #d8d8d8;
+#learn-btn:hover {
+  background-color: #ebebeb;
 }
 
-
-
-
-#intro{
+#intro {
   text-align: center;
   font-size: 1rem;
-  transform: translateY(-28vw) translateX(10vw);
   width: 40vw;
+  /* margin-top: 30vw; */
 }
-
 
 #studying-image {
   width: 30vw;
@@ -89,9 +80,9 @@
   border: 2px solid rgb(94, 94, 94);
 }
 
-@media (min-width: 1670px) {
+@media (max-width: 1350px) {
   #studying-image {
-    width: 25vw;
+    width: 28vw;
     border-radius: 8px;
     transform: translateY(2.5vw);
 
@@ -103,4 +94,3 @@
     transform: translateY(-26vw) translateX(10vw);
   }
 }
-

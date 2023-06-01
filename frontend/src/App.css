@@ -24,54 +24,57 @@ body {
   align-items: center;
 }
 
+.homepage {
+  background-image: url('Cramodoro.png');
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: top left center;
+}
+
+.dashboard {
+  background-image: url('Cramodoro.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+}
 
 .left-container {
   width: 50vw;
-  height: 100vh;
+  height: 90vh;
   float: left;
-  display: block;
+  display: flex;
   justify-content: center;
+  align-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .right-container {
   width: 50vw;
-  height: 100vh;
+  height: 90vh;
   float: right;
-  display: block;
+  display: flex;
   justify-content: center;
+  align-content: center;
   align-items: center;
-}
-
-.get-started {
-  margin-right: 20vw;
-}
-
-.dashboard {
-  align-items: center;
-  justify-content: center;
-  transform: translate(0vh, 8.5vh);
-  width: 100vw;
-  height: 200vh;
+  flex-wrap: wrap;
 }
 
 .subject-dropdown {
-  transform: translate(-70vh, 55vh);
-  height: 0vh;
+  margin-top: 40vh;
+  margin-right: 1vw;
 }
 
 .quiz-button {
-  transform: translate(-45vh, 55vh);
+  margin-top: 40vh;
+  margin-right: 1vw;
 }
 
 .flashcards-button {
-  transform: translate(-40vh, 55vh);
-}
-
-.review-section {
-  transform: translate(0vw, 150vh);
-  width: 100vw;
-  height: 0vh
+  margin-top: 40vh;
+  margin-right: 1vw;
 }
 
 .review-container {
@@ -80,10 +83,24 @@ body {
 }
 
 .review-border {
+  background-color: azure;
   border: 1px solid black;
-  width: 80vw;
-  padding-bottom: 25%;
-  margin: 1%;
   border-radius: 25px;
-  background-color: lightgrey;
+  width: 80vw;
+  height: 80vh;
+}
+
+.try-these {
+  background-color: azure;
+  border: 1px solid black;
+  border-radius: 25px;
+  width: 80vw;
+}
+
+.try-these-options {
+  background-color: azure;
+  border: 1px solid black;
+  border-radius: 25px;
+  width: 20vw;
+  margin-bottom: 5vh;
 }
