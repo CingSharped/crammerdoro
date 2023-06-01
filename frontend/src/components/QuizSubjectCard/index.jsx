@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const QuizSubjectCard = ({ subject }) => {
   return (
     <Link to={`/quiz/${subject}`}>

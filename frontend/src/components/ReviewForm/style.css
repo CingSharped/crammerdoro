@@ -1,0 +1,12 @@
+.review-log {
+  width: 600px;
+  height: 200px;
+}
+.review-log::placeholder {
+  text-align: top;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { ReviewForm } from "../../components";
 import "./quizsubject.css";
 
 const QuizSubject = () => {
@@ -62,6 +63,7 @@ const QuizSubject = () => {
       {showScore ? (
         <div className="score-section">
           You scored {score} out of {quizData.length}
+          <ReviewForm />
         </div>
       ) : (
         <>
