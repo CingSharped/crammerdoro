@@ -49,7 +49,6 @@ const Flashcards = () => {
         />
         <FlashcardLinks subjects={filteredSubjects} />
       </div>
-        <FlashcardLinks subjects={filteredSubjects} />
     </>
   );
 };
