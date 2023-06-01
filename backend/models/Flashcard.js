@@ -44,7 +44,6 @@ flashcardSchema.statics.getFlashcardsById = async function(_id) {
   }
 
   const flashcards = await this.find().where('createdBy').equals(_id)
-  console.log(flashcards)
   return flashcards
 }
 
