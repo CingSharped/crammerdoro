@@ -48,7 +48,7 @@ const Flashcards = () => {
           placeholder="Search subjects"
         />
       </div>
-      <FlashcardLinks subjects={filteredSubjects} />
+        <FlashcardLinks subjects={filteredSubjects} />
     </>
   );
 };
