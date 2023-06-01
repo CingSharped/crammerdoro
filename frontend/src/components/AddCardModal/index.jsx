@@ -84,7 +84,7 @@ function AddCardModal() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <button form='addCardForm'>Add</button>
+          <button form='addCardForm' className='__btn white-to-green'>Add</button>
         </Modal.Footer>
       </Modal>
     </>

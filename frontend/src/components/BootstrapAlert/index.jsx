@@ -9,7 +9,7 @@ function AlertDismissibleExample({heading, warning}) {
   if (show) {
     return (
       <div className="alert-holder">
-      <Alert variant="danger" onClose={() => setShow(false)} dismissible >
+      <Alert variant="info" onClose={() => setShow(false)} dismissible >
         <Alert.Heading>{heading}</Alert.Heading>
         <p>
           {warning}
