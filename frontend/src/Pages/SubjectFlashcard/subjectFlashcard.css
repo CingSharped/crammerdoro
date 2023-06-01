@@ -53,7 +53,7 @@ div.carousel-item.active {
 
 
 .page-container {
-  margin: 100px;
+  margin: 33vh 100px auto 100px;
   /* height: 70vh; */
   display: flex;
   flex-direction: column;

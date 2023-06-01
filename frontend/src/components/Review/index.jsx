@@ -60,24 +60,24 @@ const Review = () => {
                         </div>
 
                         <div className="row align-items-center">
-                            <div className="col fw-bold mt-4">
-                                Subject
-                            </div>
-                            <div className="col fw-bold mt-4">
+                            <div className="col-md-2 fw-bold fs-3 mt-4 text-white">
                                 Score
                             </div>
-                            <div className="col fw-bold mt-4">
+                            <div className="col-md-4 fw-bold fs-3 mt-4 text-white">
+                                Subject
+                            </div>
+                            <div className="col fw-bold fs-3 mt-4 text-white">
                                 Comment
                             </div>
                         </div>
 
                         {sortedReviews.map((review, index) => (
                             <div className='row align-items-center' key={index}>
-                                <div className='col mt-4'>
-                                    {review.subject}
-                                </div>
-                                <div className='col mt-4'>
+                                <div className='col-md-2 mt-4 fs-4 fst-bold text-white'>
                                     {review.score} |  {getEmoji(review.score)}
+                                </div>
+                                <div className='col-md-4 mt-4 fs-4 text-white'>
+                                    {review.subject}
                                 </div>
                                 {review.log.length > 50 ? (
                                     <OverlayTrigger
@@ -91,14 +91,14 @@ const Review = () => {
                                         }
                                     >
 
-                                        <div className='col mt-4 fst-italic'>
+                                        <div className='col mt-4 fs-4 fst-italic text-white'>
                                             "{review.log.substring(0, 50)}
                                             <a style={{ color: "red" }}>...</a>"
                                             <a style={{ color: "red", fontSize: "x-small" }}> (hover)</a>
                                         </div>
                                     </OverlayTrigger>
                                 ) : (
-                                    <div className='col mt-4 fst-italic'>"{review.log}"</div>
+                                    <div className='col mt-4 fs-4 fst-italic text-white'>"{review.log}"</div>
                                 )}
                             </div>
                         ))}
