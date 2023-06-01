@@ -15,6 +15,14 @@ const QuizSubject = () => {
 
   const subjectNumber = { Maths: 19, Science: 17, History: 23 };
 
+  function filterInput(str) {
+    str = str.replace(/&quot;/g, "'");
+    str = str.replace(/&Eacute;/g, "E");
+    str = str.replace(/&#039;/g, "'");
+    return str;
+  }
+  
+
   useEffect(() => {
     const fetchQuizData = async () => {
       try {
@@ -34,7 +42,7 @@ const QuizSubject = () => {
     if (quizData && currentQuestion < quizData.length) {
       setAnswerOptions([
         quizData[currentQuestion].correct_answer,
-        ...quizData[currentQuestion].incorrect_answers
+        ...quizData[currentQuestion].incorrect_answers,
       ]);
     }
 
@@ -72,7 +80,7 @@ const QuizSubject = () => {
                 <span>Question {currentQuestion + 1}</span>
               </div>
               <div className="question-text">
-                {quizData[currentQuestion].question}
+                {filterInput(quizData[currentQuestion].question)}
               </div>
             </div>
           )}
