@@ -3,7 +3,16 @@
   height: 350px;
   perspective: 1000px; 
   align-self: center;
-  margin: 2rem;
+  /* margin: 200px; */
+}
+
+.carousel-item {
+  display: flex;
+  justify-content: center;
+}
+div.carousel-item.active {
+  display: flex;
+  justify-content: center;
 }
 
 .card-inner {
@@ -41,10 +50,12 @@
   transform: rotateY(180deg); 
 }
 
+
 .page-container {
   margin: 100px;
   /* height: 70vh; */
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-height: 50vh;
 } 

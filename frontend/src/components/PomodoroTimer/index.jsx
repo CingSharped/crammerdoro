@@ -6,11 +6,11 @@ import { faPlay, faRotateRight } from '@fortawesome/free-solid-svg-icons'
 
 import './pomodoroTimer.css'
 
-const PomodoroTimer = () => {
+const PomodoroTimer = ({totalSeconds, setTotalSeconds}) => {
   const [showPopup, setShowPopup] = useState(false);
   const [showStartButton, setShowStartButton] = useState(true);
   const [minutes, setMinutes] = useState(0);
-  const [totalSeconds, setTotalSeconds] = useState(0);
+  
   const [timer, setTimer] = useState(null);
   const [seconds, setSeconds] = useState(0);
 
@@ -32,7 +32,7 @@ const PomodoroTimer = () => {
     clearInterval(timer);
     setMinutes(0);
     setSeconds(0);
-    setTotalSeconds(0);
+    setTotalSeconds(null);
     setShowStartButton(true);
   };
 
