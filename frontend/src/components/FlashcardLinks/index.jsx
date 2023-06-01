@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import AddCardModal from '../AddCardModal';
+
 const FlashcardLinks = ({ subjects }) => {
   return (
     <>
@@ -12,9 +14,7 @@ const FlashcardLinks = ({ subjects }) => {
             </div>
           </Link>
         ))}
-        <div className='flashcard'>
-          <h2>Add</h2>
-        </div>
+        <AddCardModal />
       </div>
     </>
   );

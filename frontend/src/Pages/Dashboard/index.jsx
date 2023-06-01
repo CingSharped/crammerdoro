@@ -22,10 +22,10 @@ const Dashboard = () => {
         <ReactFullpage
           scrollingSpeed={1000}
           scrollHorizontally={true}
+          licenseKey="gplv3-license"
           render={() => {
             return (
               <ReactFullpage.Wrapper>
-
                 <div className="section">
 
                   <div className='dashboard-container'>
@@ -62,14 +62,13 @@ const Dashboard = () => {
                 <div className="section">
                   <Review />
                 </div>
-
-              </ReactFullpage.Wrapper >
+              </ReactFullpage.Wrapper>
             );
           }}
         />
       </div>
     </>
-  )
+  );
 }
 
 export default Dashboard;

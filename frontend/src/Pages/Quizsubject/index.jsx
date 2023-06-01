@@ -3,25 +3,14 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./quizsubject.css";
 
-
 const QuizSubject = () => {
-  const [answerOptions, setAnswerOptions] = useState([]) 
- 
-
-  // category: "Science: Mathematics";
-  // correct_answer: "7";
-  // difficulty: "easy";
-  // incorrect_answers: (3)[("8", "6", "5")];
-  // question: "How many sides does a heptagon have?";
-  // type: "multiple";
-
-
-  const { subject } = useParams();
-
+  const [answerOptions, setAnswerOptions] = useState([]);
   const [quizData, setQuizData] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+
+  const { subject } = useParams();
 
   const subjectNumber = { Maths: 19, Science: 17, History: 23 };
 
@@ -32,40 +21,42 @@ const QuizSubject = () => {
           `https://opentdb.com/api.php?amount=10&category=${subjectNumber[subject]}&type=multiple`
         );
         setQuizData(response.data.results);
-        // console.log(response.data.results);
+        console.log(response.data.results);
       } catch (error) {
         console.error("Error fetching quiz data:", error);
       }
     };
     fetchQuizData();
-  }, []);
-
+  }, [subject]);
 
   useEffect(() => {
-
-    if (quizData) {
-      setAnswerOptions([quizData[currentQuestion].correct_answer, ...quizData[currentQuestion].incorrect_answers])
+    if (quizData && currentQuestion < quizData.length) {
+      setAnswerOptions([
+        quizData[currentQuestion].correct_answer,
+        ...quizData[currentQuestion].incorrect_answers
+      ]);
     }
-    
-    // console.log(quizData[currentQuestion].incorrect_answers)
-  }, [quizData]);
 
- 
-  
+    //console.log(quizData[currentQuestion].incorrect_answers)
+  }, [quizData, currentQuestion]);
+
   const handleAnswerOptionClick = (isAnswerOption) => {
-    if (isAnswerOption === quizData[currentQuestion].correct_answer) {  {
+    const correctAnswer = quizData[currentQuestion].correct_answer;
+    if (isAnswerOption === correctAnswer) {
       setScore(score + 1);
     }
-    
+
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < quizData.length) {
       setCurrentQuestion(nextQuestion);
-      setAnswerOptions([quizData[currentQuestion].correct_answer, ...quizData[currentQuestion].incorrect_answers])
+      // setAnswerOptions([quizData[currentQuestion].correct_answer, ...quizData[currentQuestion].incorrect_answers])
     } else {
       setShowScore(true);
     }
+
+    //console.log(answerOptions)
   };
-   console.log(answerOptions)
+
   return (
     <div className="quiz-container">
       {showScore ? (
@@ -74,28 +65,31 @@ const QuizSubject = () => {
         </div>
       ) : (
         <>
-          <div className="question-section">
-            <div className="question-count">
-              <span>Question {currentQuestion + 1}</span>
+          {quizData && quizData.length > 0 && (
+            <div className="question-section">
+              <div className="question-count">
+                <span>Question {currentQuestion + 1}</span>
+              </div>
+              <div className="question-text">
+                {quizData[currentQuestion].question}
+              </div>
             </div>
-            <div className="question-text">
-              {quizData[currentQuestion].question}
+          )}
+          {answerOptions.length > 0 && (
+            <div className="answer-section">
+              {answerOptions.map((answerOption, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleAnswerOptionClick(answerOption)}
+                >
+                  {answerOption}
+                </button>
+              ))}
             </div>
-          </div>
-          <div className="answer-section">
-            {answerOptions.map((answerOption) => (
-              <button
-                onClick={() => handleAnswerOptionClick(answerOption)}
-              >
-                {answerOption}
-              </button>
-            ))}
-          </div>
+          )}
         </>
       )}
     </div>
   );
-}
 };
-
 export default QuizSubject;
