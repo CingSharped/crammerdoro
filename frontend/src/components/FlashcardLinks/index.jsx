@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const FlashcardLinks = ({ subjects }) => {
+import AddCardModal from '../AddCardModal';
+
+const FlashcardLinks = ({ subjects, setFlashcards }) => {
   return (
     <>
       <div className='card-container'>
@@ -12,9 +14,7 @@ const FlashcardLinks = ({ subjects }) => {
             </div>
           </Link>
         ))}
-        <div className='flashcard'>
-          <h2>Add</h2>
-        </div>
+          <AddCardModal setFlashcards={setFlashcards} />
       </div>
     </>
   );

@@ -7,6 +7,17 @@
   margin-top: 200px;
 }
 
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) { 
+    #studying-image {
+      width: 25vw;
+      border-radius: 8px;
+      transform: translateY(4.5vw);
+      border: 2px solid rgb(94, 94, 94);
+    }
+}
+
 .landing{
   max-height: 100vh;
 }
