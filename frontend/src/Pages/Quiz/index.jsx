@@ -1,23 +1,30 @@
-import React from 'react';
-import {QuizSubjectCard} from '../../components';
-
+import React, { useState } from 'react';
+import { QuizSubjectCard } from '../../components';
+import './quiz.css'
 
 const QuizPage = () => {
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleSearchChange = (event) => {
+    const { value } = event.target;
+    setSearchValue(value);
+  };
+
   return (
     <>
-      <h1>Quizzes</h1>
-      <form>
-        <input type="text" />
-        <button>Add</button>
+      <div className='flashcard-container'>
+        <input
+          type="text"
+          value={searchValue}
+          onChange={handleSearchChange}
+          placeholder="Search subjects"
+        />
         <div className='card-container'>
-          <QuizSubjectCard subject='Maths' />
           <QuizSubjectCard subject='Science' />
+          <QuizSubjectCard subject='Maths' />
           <QuizSubjectCard subject='History' />
-          <div className='quizcard'>
-            <h2>Add</h2>
-          </div>
         </div>
-      </form>
+      </div>
     </>
   );
 };

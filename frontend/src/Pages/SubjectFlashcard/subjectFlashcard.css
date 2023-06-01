@@ -1,7 +1,7 @@
 ._card {
   width: 600px;
   height: 350px;
-  perspective: 1000px; 
+  perspective: 1000px;
   align-self: center;
   /* margin: 200px; */
 }
@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
 }
+
 div.carousel-item.active {
   display: flex;
   justify-content: center;
@@ -18,8 +19,8 @@ div.carousel-item.active {
 .card-inner {
   width: 100%;
   height: 100%;
-  transition: transform 0.6s; 
-  transform-style: preserve-3d; 
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
   border-style: solid;
 }
 
@@ -28,7 +29,7 @@ div.carousel-item.active {
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden; 
+  backface-visibility: hidden;
 }
 
 .card-front {
@@ -43,19 +44,19 @@ div.carousel-item.active {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotateY(180deg); 
+  transform: rotateY(180deg);
 }
 
 .card-inner.flipped {
-  transform: rotateY(180deg); 
+  transform: rotateY(180deg);
 }
 
 
 .page-container {
-  margin: 100px;
+  margin: 33vh 100px auto 100px;
   /* height: 70vh; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-height: 50vh;
-} 
+}

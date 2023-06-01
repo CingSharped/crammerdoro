@@ -16,7 +16,7 @@ const Home = () => {
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className="section homepage" id="landing">
+              <div className="section homepage">
                 <div className="left-container">
                   <h5 id="intro">
                     {" "}
@@ -52,7 +52,6 @@ const Home = () => {
 
               <div className="section" id="section-3">
                 <div className="left-container"></div>
-
                 <div className="right-container"></div>
               </div>
             </ReactFullpage.Wrapper>

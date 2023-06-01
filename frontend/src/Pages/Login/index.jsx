@@ -54,7 +54,7 @@ const Login = () => {
                 <div className="col-md-7 mx-auto d-flex justify-content-center vh-100 align-items-center">
                     <div className="card card-body" id="login-card">
                         <div className="login-top">
-                            <img src={logo} alt="logo" width="100px" />
+                            <img src={logo} alt="logo" width="100px" style={{ margin: '2rem' }} />
                             <h2>Login</h2>
                         </div>
                         <Form onSubmit={handleLogin}>

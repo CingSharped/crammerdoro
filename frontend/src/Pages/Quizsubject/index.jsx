@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { ReviewForm } from "../../components";
 import "./quizsubject.css";
 
 const QuizSubject = () => {
@@ -13,6 +14,14 @@ const QuizSubject = () => {
   const { subject } = useParams();
 
   const subjectNumber = { Maths: 19, Science: 17, History: 23 };
+
+  function filterInput(str) {
+    str = str.replace(/&quot;/g, "'");
+    str = str.replace(/&Eacute;/g, "E");
+    str = str.replace(/&#039;/g, "'");
+    return str;
+  }
+  
 
   useEffect(() => {
     const fetchQuizData = async () => {
@@ -33,7 +42,7 @@ const QuizSubject = () => {
     if (quizData && currentQuestion < quizData.length) {
       setAnswerOptions([
         quizData[currentQuestion].correct_answer,
-        ...quizData[currentQuestion].incorrect_answers
+        ...quizData[currentQuestion].incorrect_answers,
       ]);
     }
 
@@ -61,7 +70,7 @@ const QuizSubject = () => {
     <div className="quiz-container">
       {showScore ? (
         <div className="score-section">
-          You scored {score} out of {quizData.length}
+          <ReviewForm score={score} subject={subject} />
         </div>
       ) : (
         <>
@@ -71,7 +80,7 @@ const QuizSubject = () => {
                 <span>Question {currentQuestion + 1}</span>
               </div>
               <div className="question-text">
-                {quizData[currentQuestion].question}
+                {filterInput(quizData[currentQuestion].question)}
               </div>
             </div>
           )}
@@ -80,6 +89,7 @@ const QuizSubject = () => {
               {answerOptions.map((answerOption, index) => (
                 <button
                   key={index}
+                  className="__btn white-to-green wide-btn"
                   onClick={() => handleAnswerOptionClick(answerOption)}
                 >
                   {answerOption}

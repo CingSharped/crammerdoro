@@ -3,9 +3,10 @@ h1{
 }
 
 @media (max-width: 991px) {
-  h1{
+  h1 {
     margin-top: 300px;
   }
+
   /* .flashcard {
     width: 400px;
     height: 250px; 
