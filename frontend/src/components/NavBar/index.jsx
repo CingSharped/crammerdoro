@@ -58,7 +58,7 @@ const PageWrapper = () => {
                             </NavDropdown.Item>
                         </NavDropdown>
 
-                        <Nav.Link as={NavLink} to='/dashboard' style={{ styles }} disabled>Quizzes</Nav.Link>
+                        <Nav.Link as={NavLink} to='/quiz' style={{ styles }} >Quizzes</Nav.Link>
                         <Nav.Link as={NavLink} to='/flashcards' style={{ styles }} >Flashcards</Nav.Link>
 
                         {
