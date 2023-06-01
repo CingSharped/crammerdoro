@@ -68,7 +68,7 @@ const PomodoroTimer = () => {
   return (
     <div className='component-holder'>
       {showPopup && (
-        <div className="popup">
+        <div className="popup" data-testid="set-timer-form">
           <form onSubmit={handlePopupSubmit}>
             <label>
               Minutes:

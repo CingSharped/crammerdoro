@@ -16,12 +16,14 @@
 
 .btn-holder {
   margin-top: 1vw;
+  
 }
 
 .landing-btn {
   width: 10vw;
   padding: 10px 15px;
   margin-right: 1.5rem;
+  margin-top: 3rem;
   border: 2px solid black; 
   box-shadow: none;
   font-weight: bold;
@@ -38,7 +40,7 @@
 
 #signup-btn:hover {
   background-position: right;
-  animation: gradientMovement 2s linear infinite;
+  animation: gradientMovement 2s ease infinite;
 }
 
 @keyframes gradientMovement {
@@ -61,14 +63,14 @@
 }
 
 #learn-btn:hover {
-  background-color: #d8d8d8;
+  background-color: #ebebeb;
 }
 
 #intro {
   text-align: center;
   font-size: 1rem;
   width: 40vw;
-  margin-top: 30vw;
+  /* margin-top: 30vw; */
 }
 
 #studying-image {
@@ -78,9 +80,9 @@
   border: 2px solid rgb(94, 94, 94);
 }
 
-@media (min-width: 1670px) {
+@media (max-width: 1350px) {
   #studying-image {
-    width: 25vw;
+    width: 28vw;
     border-radius: 8px;
     transform: translateY(2.5vw);
 

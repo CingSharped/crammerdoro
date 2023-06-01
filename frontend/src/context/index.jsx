@@ -13,3 +13,18 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
+
+const FlashcardContext = createContext();
+
+export const FlashcardProvider = ({ children }) => {
+    const [flashcards, setFlashcards] = useState([]);
+    const [subjects, setSubjects] = useState([]);
+
+    return (
+        <FlashcardContext.Provider value={{ flashcards, setFlashcards, subjects, setSubjects }}>
+            {children}
+        </FlashcardContext.Provider>
+    );
+};
+
+export const useFlashcard = () => useContext(FlashcardContext);

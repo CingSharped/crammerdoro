@@ -2,33 +2,25 @@ import React from 'react'
 
 import { Flashcard } from '../../components'
 import { useParams } from 'react-router-dom';
+
+import { useFlashcard } from '../../context';
 import './subjectFlashcard.css'
 
 const SubjectFlashcard = () => {
-  const flashcardDummy = {
-    english: {
-      question: "Who is the author of the famous novel 'Pride and Prejudice'?",
-      answer: "Jane Austen"
-    },
-    maths: {
-      question: "What is the value of π (pi) to two decimal places?",
-      answer: "3.14"
-    },
-    history: {
-      question: "Which year did World War II end?",
-      answer: "1945"
-    }
-  }
+  const {flashcards } = useFlashcard()
+  const subject = useParams()
 
-  const { subject } = useParams();
-  const { question, answer } = flashcardDummy[subject];
-
+  
+  const filteredFlashcards = flashcards.filter(
+    (flashcard) => flashcard.subject === subject.subject
+    );
+    
   return (
-    <>
-      <div className='page-container'>
-        <Flashcard question={question} answer={answer} />
-      </div>
-    </>
+    <div className='page-container'>
+      {filteredFlashcards.map((flashcard) => (
+        <Flashcard key={flashcard.question} question={flashcard.question} answer={flashcard.answer}/>
+      ))}
+    </div>
   )
 }
 
