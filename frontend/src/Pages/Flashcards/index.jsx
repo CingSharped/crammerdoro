@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import { useAuth, useFlashcard } from '../../context';
-import {FlashcardLinks } from '../../components';
+import { FlashcardLinks } from '../../components';
 
 const Flashcards = () => {
   const { user } = useAuth();
@@ -40,15 +40,15 @@ const Flashcards = () => {
 
   return (
     <>
-      <div>
+      <div className='flashcard-container'>
         <input
           type="text"
           value={searchValue}
           onChange={handleSearchChange}
           placeholder="Search subjects"
         />
+        <FlashcardLinks subjects={filteredSubjects} />
       </div>
-      <FlashcardLinks subjects={filteredSubjects} />
     </>
   );
 };

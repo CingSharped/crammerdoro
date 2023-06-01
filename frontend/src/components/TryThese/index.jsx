@@ -1,59 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
+import './trythese.css'
 
 const TryThese = () => {
 
-    const reviews = [
-        {
-            subject: "English",
-            score: 8,
-            log: "I felt great about this quiz",
-        },
-        {
-            subject: "Maths",
-            score: 5,
-            log: "I felt great about this quiz too",
-        },
-        {
-            subject: "History",
-            score: 1,
-            log: "Could have done better",
-        },
-        {
-            subject: "Science",
-            score: 7,
-            log: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa reiciendis quidem dolorum ipsum quasi hic ex repellendus assumenda sequi odio! Maxime nemo fugit at reiciendis molestiae eveniet veniam eos in!",
-        },
-        {
-            subject: "English",
-            score: 3,
-            log: "I felt great about this quiz",
-        },
-        {
-            subject: "Maths",
-            score: 9,
-            log: "I felt great about this quiz too",
-        },
-        {
-            subject: "Science",
-            score: 4,
-            log: "Could have done better",
-        },
-        {
-            subject: "English",
-            score: 0,
-            log: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa reiciendis quidem dolorum ipsum quasi hic ex repellendus assumenda sequi odio! Maxime nemo fugit at reiciendis molestiae eveniet veniam eos in!",
-        },
-        {
-            subject: "Maths",
-            score: 0,
-            log: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa reiciendis quidem dolorum ipsum quasi hic ex repellendus assumenda sequi odio! Maxime nemo fugit at reiciendis molestiae eveniet veniam eos in!",
-        }
-    ];
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        const user_id = "647750869fe01912632454f8"
+
+        const fetchReviews = async () => {
+            try {
+                const response = await axios.get(`https://crammerdoro-backend.onrender.com/reviews/${user_id}`);
+
+                console.log('useEffect', response.data);
+                setReviews(response.data);
+            } catch (error) {
+                console.error('Error fetching reviews:', error);
+            }
+        };
+
+        fetchReviews();
+    }, [])
 
     const sortedReviews = reviews.sort((a, b) => a.score - b.score).slice(0, 3);
+
+    function formatDate(dateString) {
+        const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-GB', options);
+    }
 
     // https://unicode.org/emoji/charts/full-emoji-list.html
     const getEmoji = (score) => {
@@ -74,39 +53,41 @@ const TryThese = () => {
 
     return (
         <>
-            <div className='review-container d-flex'>
-                <div className='try-these mt-5 align-items-center'>
+            <div className="dashboard">
+                <div className='review-container d-flex'>
+                    <div className='try-these mt-5 align-items-center'>
 
-                    <div className="container mt-4">
-                        <h3>Try These</h3>
+                        <div className="container mt-4">
+                            <h3>Try These</h3>
+                        </div>
+
+                        <div className="options-container col mx-4 d-flex justify-content-around">
+
+                            {sortedReviews.map((review, index) => (
+                                <div className='try-these-options mt-4 mx-4' key={index}>
+                                    <div className='mt-2 fs-2 fw-bold text-uppercase justify-content-center'>
+                                        {review.subject}
+                                    </div>
+
+                                    <div className='mt-2 fs-5'>
+                                        Latest Score: {review.score}
+                                    </div>
+
+                                    <div className='mt-2 fs-5'>
+                                        {getEmoji(review.score)}
+                                    </div>
+
+                                    <Link to={`/subjectflashcard/${review.subject}`}>
+                                        <Button className='mt-2 mb-2' variant='outline-secondary'>
+                                            Learn More
+                                        </Button>
+                                    </Link>
+
+                                </div>
+                            ))}
+                        </div>
+
                     </div>
-
-                    <div className="options-container row mx-4 d-flex justify-content-around">
-
-                        {sortedReviews.map((review, index) => (
-                            <div className='try-these-options mt-4 mx-4' key={index}>
-                                <div className='mt-2 fs-2 fw-bold text-uppercase justify-content-center'>
-                                    {review.subject}
-                                </div>
-
-                                <div className='mt-2 fs-5'>
-                                    Latest Score: {review.score}
-                                </div>
-
-                                <div className='mt-2 fs-5'>
-                                    {getEmoji(review.score)}
-                                </div>
-
-                                <Link to={`/subjectflashcard/${review.subject.toLowerCase()}`}>
-                                    <Button className='mt-2 mb-2' variant='outline-secondary'>
-                                        Learn More
-                                    </Button>
-                                </Link>
-
-                            </div>
-                        ))}
-                    </div>
-
                 </div>
             </div>
         </>

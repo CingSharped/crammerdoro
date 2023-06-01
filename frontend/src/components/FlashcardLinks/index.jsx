@@ -14,7 +14,7 @@ const FlashcardLinks = ({ subjects }) => {
             </div>
           </Link>
         ))}
-          <AddCardModal />
+        <AddCardModal />
       </div>
     </>
   );
