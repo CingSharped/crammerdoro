@@ -8,6 +8,7 @@ import {FlashcardLinks } from '../../components';
 const Flashcards = () => {
   const { user } = useAuth();
   const { flashcards, setFlashcards, subjects, setSubjects } = useFlashcard()
+  const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
     const fetchFlashcards = async () => {
@@ -28,14 +29,26 @@ const Flashcards = () => {
     // console.log(flashcards);
   }, [flashcards]);
 
+  const handleSearchChange = (event) => {
+    const { value } = event.target;
+    setSearchValue(value);
+  };
+
+  const filteredSubjects = subjects.filter(subject =>
+    subject.toLowerCase().includes(searchValue.toLowerCase())
+  );
+
   return (
     <>
-      {`you have these: ${subjects}`}
-      <form>
-        <input type="text" />
-        <button>Add</button>
-      </form>
-      <FlashcardLinks setFlashcards={setFlashcards} subjects={subjects} />
+      <div>
+        <input
+          type="text"
+          value={searchValue}
+          onChange={handleSearchChange}
+          placeholder="Search subjects"
+        />
+      </div>
+      <FlashcardLinks subjects={filteredSubjects} />
     </>
   );
 };
