@@ -78,7 +78,7 @@ const Review = () => {
         }
     ];
 
-    const sortedReviews = reviews.sort((a, b) => new Date(b.createdOn) - new Date(a.createdOn)).slice(0, 10)
+    const sortedReviews = reviews.sort((a, b) => new Date(b.createdOn) - new Date(a.createdOn)).slice(0, 8)
 
     function formatDate(dateString) {
         const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };

@@ -1,20 +1,15 @@
 import React from 'react';
-import { Button, Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Form, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../context';
-
 import logo from '../../assets/Cramodoro Favicon.png'
-
-
 import { PomodoroTimer } from '..'
-
-
 
 const styles = ({ isActive }) => ({ color: isActive ? '#ECD444' : 'black' });
 
-const PageWrapper = () => {
-    const {user, setUser} = useAuth()
+const NavBar = () => {
+    const { user, setUser } = useAuth()
     const navigate = useNavigate()
 
     const handleLogout = () => {
@@ -29,7 +24,7 @@ const PageWrapper = () => {
         <header>
             <Navbar bg="light" expand="lg" fixed="top">
                 <Container fluid>
-                        <img src={logo} alt="Music App Logo" className="logo" style={{ width: '4%', marginRight: '20px' }} />
+                    <img src={logo} alt="Music App Logo" className="logo" style={{ width: '4%', marginRight: '20px' }} />
                     <Navbar.Brand as={NavLink} to='/' >CRAMODORO</Navbar.Brand>
 
                     <Nav className="justify-content-end flex-grow-1 pe-3">
@@ -74,4 +69,4 @@ const PageWrapper = () => {
     </>
 };
 
-export default PageWrapper;
+export default NavBar;
