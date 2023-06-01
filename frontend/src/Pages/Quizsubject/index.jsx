@@ -62,8 +62,7 @@ const QuizSubject = () => {
     <div className="quiz-container">
       {showScore ? (
         <div className="score-section">
-          You scored {score} out of {quizData.length}
-          <ReviewForm />
+          <ReviewForm score={score} subject={subject}/>
         </div>
       ) : (
         <>
