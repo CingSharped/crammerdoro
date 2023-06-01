@@ -115,3 +115,64 @@ body {
   width: 20vw;
   margin-bottom: 5vh;
 }
+
+.__btn{
+  width: 10vw;
+  padding: 10px 15px;
+  margin-right: 1.5rem;
+  margin-top: 3rem;
+  border: 2px solid black; 
+  box-shadow: none;
+  font-weight: bold;
+  border-radius: 100px;
+  font-size: 1.3vw;
+}
+
+.primary-btn{
+  color: #fff;
+  background: linear-gradient(45deg, #365050, #00ffb7);
+  background-size: 200% 100%;
+  transition: background-position 0.3s ease-in-out;
+}
+
+.primary:hover {
+  background-position: right;
+  animation: gradientMovement 2s ease infinite;
+}
+
+@keyframes gradientMovement {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.secondary-btn {
+  background: white;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.secondary-btn:hover {
+  background-color: #ebebeb;
+}
+
+.white-to-green {
+  color: #5f5f5f;
+  background: linear-gradient(45deg, #ffffff, #ffffff);
+  background-size: 200% 100%;
+  transition: background-color 0.3s ease-in-out;
+}
+  
+  .white-to-green:hover {
+  color: #fff;
+  background: linear-gradient(45deg, #365050, #00ffb7);
+  background-size: 200% 100%;
+  background-position: right center;
+}
