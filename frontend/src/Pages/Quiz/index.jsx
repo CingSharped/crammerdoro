@@ -1,5 +1,5 @@
 import React from 'react';
-import QuizSubjectCard from '../../components/Quizsubjectcard';
+import {QuizSubjectCard} from '../../components';
 
 
 const QuizPage = () => {
