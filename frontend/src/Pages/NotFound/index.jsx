@@ -1,12 +1,17 @@
-import React from 'react'
-
 const NotFound = () => {
-  
-  return (
-    <>
-      Not Found
-    </>
-  )
-}
+  const location = useLocation();
 
-export default NotFound
+  return (
+    <div>
+      <h1>
+        Page <span style={{ color: "firebrick" }}>{location.pathname}</span> not
+        found
+      </h1>
+      <Link to="/" style={{ color: "firebrick", fontWeight: "bold" }}>
+        Home Page &rarr;
+      </Link>
+    </div>
+  );
+};
+
+export default NotFound;
