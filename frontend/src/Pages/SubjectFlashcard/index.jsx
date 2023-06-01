@@ -17,7 +17,7 @@ const SubjectFlashcard = () => {
 
   return (
     <div className='page-container'>
-      <Carousel variant="dark" interval={null}>
+      <Carousel variant="dark" interval={null} slide={false}>
         {filteredFlashcards.map((flashcard) => (
           <Carousel.Item key={flashcard.question}>
             <Flashcard question={flashcard.question} answer={flashcard.answer} />
