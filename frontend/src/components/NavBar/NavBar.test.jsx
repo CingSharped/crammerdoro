@@ -24,7 +24,7 @@ describe('NavBar', () => {
   });
 
   it('Should have app name/logo link', () => {
-    const appName = screen.getByRole('link', { name: /cramodoro/i});
+    const appName = screen.getByRole('NavLink', { name: /cramodoro/i});
     expect(appName).toBeInTheDocument();
   });
 
