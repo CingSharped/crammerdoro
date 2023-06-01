@@ -4,3 +4,28 @@
   align-items: center;
 }
 
+#addCardForm > select {
+  margin: 1rem 0;
+  width: 10rem;
+  text-align: center;
+  padding: 0.2rem;
+  border-radius: 5px;
+}
+
+#addCardForm > textarea{
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  width: 20rem;
+  text-align: center;
+  border-radius: 5px;
+}
+
+div.modal-footer{
+  justify-content: center;
+
+}
+
+div.modal-footer > button{
+  margin: 1rem auto;
+}
+

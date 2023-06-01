@@ -60,7 +60,7 @@ const PageWrapper = () => {
                         <Nav.Link as={NavLink} to='/flashcards' style={{ styles }} >Flashcards</Nav.Link>
 
                         {
-                            user ? <button onClick={handleLogout}>Logout</button> : <button onClick={handleLogin} className='nav-btn'>Log In</button>
+                            user ? <button onClick={handleLogout} className='nav-btn'>Logout</button> : <button onClick={handleLogin} className='nav-btn'>Log In</button>
                         }
 
 
