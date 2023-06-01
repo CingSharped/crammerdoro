@@ -1,0 +1,36 @@
+.dashboard {
+    background-image: url('Cramodoro.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+}
+
+.dashboard-container {
+    width: 100vw;
+    height: 90vh;
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-between;
+}
+
+.dashboard-btns {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15rem;
+}
+
+.subject-dropdown {
+    margin-right: 1vw;
+}
+
+.quiz-button {
+    margin-right: 1vw;
+}
+
+.flashcards-button {
+    margin-right: 1vw;
+}

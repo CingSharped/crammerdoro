@@ -3,13 +3,10 @@ import { Button, Container, Form, Nav, Navbar, NavDropdown, Alert } from 'react-
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../context';
-
 import logo from '../../assets/Cramodoro Favicon.png'
 
 
 import { PomodoroTimer, BootstrapAlert } from '..'
-
-
 
 const styles = ({ isActive }) => ({ color: isActive ? '#ECD444' : 'black' });
 
@@ -70,7 +67,7 @@ const PageWrapper = () => {
                     </Nav>
                 </Container>
             </Navbar>
-                {totalSeconds === 0 && <BootstrapAlert heading={'Times Up!'} warning={'Take a break, have some tea or coffee :)'}/>}
+            {totalSeconds === 0 && <BootstrapAlert heading={'Times Up!'} warning={'Take a break, have some tea or coffee :)'} />}
         </header>
         <Outlet />
     </>

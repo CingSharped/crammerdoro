@@ -13,25 +13,25 @@ const Register = () => {
 
     const handleRegister = async (e) => {
         e.preventDefault();
-      
+
         const requestData = {
-          username,
-          password,
+            username,
+            password,
         };
-      
+
         try {
-          const response = await axios.post('https://crammerdoro-backend.onrender.com/users/signup', requestData);
-      
-          if (response.status === 201) {
-            navigate('/login'); 
-          } else {
-            alert('User already exists');
-          }
+            const response = await axios.post('https://crammerdoro-backend.onrender.com/users/signup', requestData);
+
+            if (response.status === 201) {
+                navigate('/login');
+            } else {
+                alert('User already exists');
+            }
         } catch (error) {
-          console.error('Registration failed:', error);
+            console.error('Registration failed:', error);
         }
     };
-      
+
 
     return (
         <div className="container">
@@ -39,7 +39,7 @@ const Register = () => {
                 <div className="col-md-7 mx-auto d-flex justify-content-center vh-100 align-items-center">
                     <div className="card card-body" id="register-card">
                         <div className="register-top">
-                            <img src={logo} alt="logo" width="100px" />
+                            <img src={logo} alt="logo" width="100px" style={{ margin: '2rem' }} />
                             <h2>Register</h2>
                         </div>
                         <Form onSubmit={handleRegister}>
