@@ -1,84 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
 
 const TryThese = () => {
 
-    const reviews = [
-        {
-            subject: "English",
-            score: 8,
-            log: "I felt great about this quiz",
-            createdOn: "2023-01-01"
-        },
-        {
-            subject: "Maths",
-            score: 5,
-            log: "I felt great about this quiz too",
-            createdOn: "2022-01-01"
-        },
-        {
-            subject: "History",
-            score: 1,
-            log: "Could have done better",
-            createdOn: "2021-01-01"
-        },
-        {
-            subject: "Science",
-            score: 7,
-            log: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa reiciendis quidem dolorum ipsum quasi hic ex repellendus assumenda sequi odio! Maxime nemo fugit at reiciendis molestiae eveniet veniam eos in!",
-            createdOn: "2021-02-01"
-        },
-        {
-            subject: "English",
-            score: 3,
-            log: "I felt great about this quiz",
-            createdOn: "2021-02-01"
-        },
-        {
-            subject: "Maths",
-            score: 9,
-            log: "I felt great about this quiz too",
-            createdOn: "2021-01-02"
-        },
-        {
-            subject: "Science",
-            score: 4,
-            log: "Could have done better",
-            createdOn: "2021-01-02"
-        },
-        {
-            subject: "English",
-            score: 0,
-            log: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa reiciendis quidem dolorum ipsum quasi hic ex repellendus assumenda sequi odio! Maxime nemo fugit at reiciendis molestiae eveniet veniam eos in!",
-            createdOn: "2022-02-02"
-        },
-        {
-            subject: "English",
-            score: 3,
-            log: "I felt great about this quiz",
-            createdOn: "2023-03-03"
-        },
-        {
-            subject: "Maths",
-            score: 9,
-            log: "I felt great about this quiz too",
-            createdOn: "2023-01-01"
-        },
-        {
-            subject: "Science",
-            score: 4,
-            log: "Could have done better",
-            createdOn: "2022-01-01"
-        },
-        {
-            subject: "Maths",
-            score: 0,
-            log: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa reiciendis quidem dolorum ipsum quasi hic ex repellendus assumenda sequi odio! Maxime nemo fugit at reiciendis molestiae eveniet veniam eos in!",
-            createdOn: "2021-01-01"
-        }
-    ];
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        const user_id = "647750869fe01912632454f8"
+
+        const fetchReviews = async () => {
+            try {
+                const response = await axios.get(`https://crammerdoro-backend.onrender.com/reviews/${user_id}`);
+
+                console.log('useEffect', response.data);
+                setReviews(response.data);
+            } catch (error) {
+                console.error('Error fetching reviews:', error);
+            }
+        };
+
+        fetchReviews();
+    }, [])
 
     const sortedReviews = reviews.sort((a, b) => a.score - b.score).slice(0, 3);
 
@@ -130,7 +74,7 @@ const TryThese = () => {
                                     {getEmoji(review.score)}
                                 </div>
 
-                                <Link to={`/subjectflashcard/${review.subject}`}>
+                                <Link to={`/subjectflashcard/${review.subject.toLowerCase()}`}>
                                     <Button className='mt-2 mb-2' variant='outline-secondary'>
                                         Learn More
                                     </Button>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { OverlayTrigger, Popover } from 'react-bootstrap';
 import axios from 'axios';
 
-
 const Review = () => {
     const [reviews, setReviews] = useState([]);
 
