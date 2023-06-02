@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
 
 import axios from 'axios';
 
@@ -13,7 +15,7 @@ function AddCardModal() {
   const [answerValue, setAnswerValue] = useState('');
   const [selectedSubject, setSelectedSubject] = useState('Maths');
   const { user } = useAuth()
-  const {setFlashcards} = useFlashcard()
+  const { setFlashcards } = useFlashcard()
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -38,26 +40,26 @@ function AddCardModal() {
       answer: answerValue,
       createdBy: user._id
     };
-  
+
     try {
       const response = await axios.post('https://crammerdoro-backend.onrender.com/flashcards', requestData);
-  
+
       if (response.status === 201) {
-        const newFlashcard = response.data; 
+        const newFlashcard = response.data;
         setFlashcards((prevFlashcards) => [...prevFlashcards, newFlashcard]);
-        alert('created') 
+        alert('created')
       } else {
-        alert('something is wrong') 
+        alert('something is wrong')
       }
     } catch (error) {
       console.error('Registration failed:', error);
     }
-};
+  };
 
   return (
     <>
       <div className='flashcard' onClick={handleShow}>
-        Add
+      <FontAwesomeIcon icon={faPlus} size="2xl" style={{backgroundColor: 'white', borderRadius: '100%', padding: '1.5rem'}}/>
       </div>
 
       <Modal
@@ -67,24 +69,30 @@ function AddCardModal() {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Add a card</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form id='addCardForm' onSubmit={handleAddCard}>
             <select aria-label='subject selection' value={selectedSubject} onChange={handleSubjectChange}>
+              <option value="" disabled selected>Pick your subject</option>
               <option value="Maths">Maths</option>
               <option value="English">English</option>
               <option value="History">History</option>
+              <option value="Geography">Geography</option>
+              <option value="Science">Science</option>
+              <option value="Music">Music</option>
+              <option value="Art">Art</option>
+              <option value="Other">Other</option>
             </select>
-            <input value={questionValue} onChange={handleQuestionChange} type="text" placeholder='Question' aria-label='question textbox'/>
-            <input value={answerValue} onChange={handleAnswerChange} type="text" placeholder='Answer' aria-label='answer textbox'/>
+            <textarea value={questionValue} onChange={handleQuestionChange} placeholder='Question' aria-label='question textbox' id='question-textbox' />
+            <textarea value={answerValue} onChange={handleAnswerChange} placeholder='Answer' aria-label='answer textbox' id='answer-textbox'/>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <button className='__btn secondary-btn' onClick={handleClose}>
             Close
-          </Button>
-          <button form='addCardForm' className='__btn white-to-green'>Add</button>
+          </button>
+          <button form='addCardForm' className='__btn primary-btn'>Add</button>
         </Modal.Footer>
       </Modal>
     </>

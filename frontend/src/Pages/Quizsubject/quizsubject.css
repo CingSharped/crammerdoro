@@ -1,18 +1,33 @@
 .quiz-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 15vh;
-  }
-  
-  .question-section {
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-  
-  .question-text {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15vh;
+}
+
+.question-section {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.question-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.answer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.white-to-green.wide-btn {
+  min-width: 600px;
+  padding: 2rem 0;
+}
+
+.difficulty-dropdown {
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+}

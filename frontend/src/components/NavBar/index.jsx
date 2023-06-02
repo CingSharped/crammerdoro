@@ -38,29 +38,11 @@ const PageWrapper = () => {
                         <Nav.Link as={NavLink} to='/' style={{ styles }}>Home</Nav.Link>
                         <Nav.Link as={NavLink} to='/dashboard' style={{ styles }}>Dashboard</Nav.Link>
 
-                        <NavDropdown title="Subjects" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">
-                                Maths
-                            </NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action4">
-                                Science
-                            </NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action5">
-                                History
-                            </NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action6">
-                                Geography
-                            </NavDropdown.Item>
-                        </NavDropdown>
-
                         <Nav.Link as={NavLink} to='/quiz' style={{ styles }} >Quizzes</Nav.Link>
                         <Nav.Link as={NavLink} to='/flashcards' style={{ styles }} >Flashcards</Nav.Link>
 
                         {
-                            user ? <button onClick={handleLogout}>Logout</button> : <button onClick={handleLogin} className='nav-btn'>Log In</button>
+                            user ? <button onClick={handleLogout} className='nav-btn'>Logout</button> : <button onClick={handleLogin} className='nav-btn'>Log In</button>
                         }
 
 

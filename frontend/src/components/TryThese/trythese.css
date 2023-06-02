@@ -19,8 +19,24 @@
     margin-bottom: 5vh;
 }
 
-h3 {
+.try-these h2 {
     color: white;
     font-weight: bold;
     font-size: 2.5rem;
+}
+
+#suggestions {
+    color: white;
+    text-align: center;
+    line-height: 2.5vh;
+}
+
+#suggestions b {
+    color: gold;
+    text-align: center;
+    line-height: 2.5vh;
+}
+
+div b {
+    color: #00d196;
 }

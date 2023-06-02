@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Form } from 'react-bootstrap';
+import { useParams , useNavigate} from "react-router-dom";
+
 import axios from "axios";
 import { ReviewForm } from "../../components";
 import "./quizsubject.css";
+
+import { useDifficulty } from '../../context';
+
 
 const QuizSubject = () => {
   const [answerOptions, setAnswerOptions] = useState([]);
@@ -10,35 +15,51 @@ const QuizSubject = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  const { difficulty, setDifficulty } = useDifficulty();
+
+  const navigate = useNavigate();
 
   const { subject } = useParams();
 
-  const subjectNumber = { Maths: 19, Science: 17, History: 23 };
+  const subjectNumber = { Maths: 19, Science: 17, History: 23, Art: 25 };
+
+  function filterInput(str) {
+    str = str.replace(/&quot;/g, "'");
+    str = str.replace(/&Eacute;/g, "E");
+    str = str.replace(/&#039;/g, "'");
+    str = str.replace(/&deg;C/g, "&#8451;");
+    str = str.replace(/&amp;/g, "&");
+    str = str.replace(/&rsquo;/g, "'");
+    str = str.replace(/&ouml;/g, "ö");
+    str = str.replace(/&deg;/g, "º")
+    str = str.replace(/&sup2;/g, "^2")
+    return str;
+  }
+
+  const fetchQuizData = async () => {
+    try {
+      const response = await axios.get(
+        `https://opentdb.com/api.php?amount=10&category=${subjectNumber[subject]
+        }&difficulty=${difficulty === 'easy' && subject === 'Maths' ? 'medium' : difficulty}&type=multiple`
+      );
+      console.log(response.data.results);
+      setQuizData(response.data.results);
+    } catch (error) {
+      console.error("Error fetching quiz data:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchQuizData = async () => {
-      try {
-        const response = await axios.get(
-          `https://opentdb.com/api.php?amount=10&category=${subjectNumber[subject]}&type=multiple`
-        );
-        setQuizData(response.data.results);
-        console.log(response.data.results);
-      } catch (error) {
-        console.error("Error fetching quiz data:", error);
-      }
-    };
     fetchQuizData();
-  }, [subject]);
+  }, []);
 
   useEffect(() => {
     if (quizData && currentQuestion < quizData.length) {
       setAnswerOptions([
         quizData[currentQuestion].correct_answer,
-        ...quizData[currentQuestion].incorrect_answers
+        ...quizData[currentQuestion].incorrect_answers,
       ]);
     }
-
-    //console.log(quizData[currentQuestion].incorrect_answers)
   }, [quizData, currentQuestion]);
 
   const handleAnswerOptionClick = (isAnswerOption) => {
@@ -50,19 +71,34 @@ const QuizSubject = () => {
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < quizData.length) {
       setCurrentQuestion(nextQuestion);
-      // setAnswerOptions([quizData[currentQuestion].correct_answer, ...quizData[currentQuestion].incorrect_answers])
     } else {
       setShowScore(true);
     }
-
-    //console.log(answerOptions)
   };
 
   return (
     <div className="quiz-container">
+      <button className = "__btn white-to-green back-button" onClick={() => navigate("/quiz")}>Back to Quizzes</button>
+      <div className="difficulty-dropdown mb-3">
+        <Form.Label
+          className="mx-2">
+          Select Difficulty:
+        </Form.Label>
+
+        <Form.Control
+          as="select"
+          value={selectedDifficulty}
+          onChange={handleDifficultyChange}
+        >
+          <option value="">Any Difficulty</option>
+          {subject !== "Maths" && <option value="easy">Easy</option>}
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </Form.Control>
+      </div>
       {showScore ? (
         <div className="score-section">
-          <ReviewForm score={score} subject={subject}/>
+          <ReviewForm score={score} subject={subject} />
         </div>
       ) : (
         <>
@@ -72,7 +108,7 @@ const QuizSubject = () => {
                 <span>Question {currentQuestion + 1}</span>
               </div>
               <div className="question-text">
-                {quizData[currentQuestion].question}
+                {filterInput(quizData[currentQuestion].question)}
               </div>
             </div>
           )}
@@ -81,9 +117,10 @@ const QuizSubject = () => {
               {answerOptions.map((answerOption, index) => (
                 <button
                   key={index}
+                  className="__btn white-to-green wide-btn text-capitalize"
                   onClick={() => handleAnswerOptionClick(answerOption)}
                 >
-                  {answerOption}
+                  {filterInput(answerOption)}
                 </button>
               ))}
             </div>
