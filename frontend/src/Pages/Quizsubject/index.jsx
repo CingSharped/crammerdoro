@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Form } from 'react-bootstrap';
+import { useParams , useNavigate} from "react-router-dom";
+
 import axios from "axios";
 import { ReviewForm } from "../../components";
 import "./quizsubject.css";
 
 import { useDifficulty } from '../../context';
+
 
 const QuizSubject = () => {
   const [answerOptions, setAnswerOptions] = useState([]);
@@ -13,6 +16,8 @@ const QuizSubject = () => {
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
   const { difficulty, setDifficulty } = useDifficulty();
+
+  const navigate = useNavigate();
 
   const { subject } = useParams();
 
@@ -73,6 +78,24 @@ const QuizSubject = () => {
 
   return (
     <div className="quiz-container">
+      <button className = "__btn white-to-green back-button" onClick={() => navigate("/quiz")}>Back to Quizzes</button>
+      <div className="difficulty-dropdown mb-3">
+        <Form.Label
+          className="mx-2">
+          Select Difficulty:
+        </Form.Label>
+
+        <Form.Control
+          as="select"
+          value={selectedDifficulty}
+          onChange={handleDifficultyChange}
+        >
+          <option value="">Any Difficulty</option>
+          {subject !== "Maths" && <option value="easy">Easy</option>}
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </Form.Control>
+      </div>
       {showScore ? (
         <div className="score-section">
           <ReviewForm score={score} subject={subject} />
