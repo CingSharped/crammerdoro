@@ -50,24 +50,21 @@ const Home = () => {
                   <div className="left-container">
                     <div id='timer-screenshot'>
                       <img src="timer.png" id="pomodoro-image" style={{ width: '5rem' }} />
-                      <br />
-                      <img src="flashcards example.png" id="flashcard-image" style={{ width: '50rem' }} />
+                      <h5 id="pomodoro-info">
+                        {" "}
+                        Click on the timer icon in the navbar to activate the Pomodoro timer. Challenge yourself and use this while you're doing the quizzes. {" "}
+                      </h5>
                     </div>
 
                   </div>
 
 
                   <div className="right-container">
-                    <h5 id="pomodoro-info">
-                      {" "}
-                      Click on the timer icon in the navbar to activate the Pomodoro timer. Challenge yourself and use this while you're doing the quizzes. {" "}
-                    </h5>
-
+                    <img src="flashcards example.png" id="flashcard-image" style={{ width: '50rem' }} />
                     <h5 id="flashcard-info">
                       {" "}
                       Visit Flashcards from the navbar to view flashcards for different subjects. {" "}
                     </h5>
-
                   </div>
                   <Button>top</Button>
                 </HashLink>
