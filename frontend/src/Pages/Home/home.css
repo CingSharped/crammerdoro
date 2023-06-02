@@ -93,6 +93,18 @@
   margin-top: 5vw;
 }
 
+.info {
+  display: flex;
+}
+
+#pomodoro-info {
+  text-align: center;
+  font-size: 1rem;
+  width: 40vw;
+  line-height: 2.5vh;
+  margin-top: 5vw;
+}
+
 #studying-image {
   width: 25vw;
   border-radius: 8px;

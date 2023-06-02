@@ -46,13 +46,23 @@ const Home = () => {
 
               <div className="section" id="learn-more">
                 <HashLink smooth to="#landing">
+
+                  <div className="left-container">
+                    <div>
+                      <img src="timer.png" id="pomodoro-image" />
+                    </div>
+                  </div>
+
+
+                  <div className="right-container">
+                    <h5 id="pomodoro-info">
+                      {" "}
+                      Click on the timer icon in the navbar to activate the Pomodoro timer. Challenge yourself and use this while you're doing the quizzes. {" "}
+                    </h5>
+
+                  </div>
                   <Button>top</Button>
                 </HashLink>
-              </div>
-
-              <div className="section" id="section-3">
-                <div className="left-container"></div>
-                <div className="right-container"></div>
               </div>
             </ReactFullpage.Wrapper>
           );
