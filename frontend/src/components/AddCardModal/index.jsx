@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faL, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 
 import axios from 'axios';
 
+import BootstrapAlert from '../BootstrapAlert'
 import { useAuth, useFlashcard } from '../../context';
 import './addCardModal.css'
 
@@ -16,6 +17,7 @@ function AddCardModal() {
   const [selectedSubject, setSelectedSubject] = useState('Maths');
   const { user } = useAuth()
   const { setFlashcards } = useFlashcard()
+  const [alert, setAlert] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -45,9 +47,14 @@ function AddCardModal() {
       const response = await axios.post('https://crammerdoro-backend.onrender.com/flashcards', requestData);
 
       if (response.status === 201) {
+        setAlert(true)
+        setTimeout(() => {
+          setAlert(false)
+        }, 3000);
         const newFlashcard = response.data;
         setFlashcards((prevFlashcards) => [...prevFlashcards, newFlashcard]);
-        alert('created')
+        setAnswerValue('')
+        setQuestionValue('')
       } else {
         alert('something is wrong')
       }
@@ -71,6 +78,7 @@ function AddCardModal() {
         <Modal.Header closeButton>
           <Modal.Title>Add a card</Modal.Title>
         </Modal.Header>
+        {alert === true && <BootstrapAlert heading={'Added successfully!'} warning={'Nice Job :)'}/>}
         <Modal.Body>
           <form id='addCardForm' onSubmit={handleAddCard}>
             <select aria-label='subject selection' value={selectedSubject} onChange={handleSubjectChange}>
