@@ -15,7 +15,6 @@ const Review = () => {
             try {
                 const response = await axios.get(`https://crammerdoro-backend.onrender.com/reviews/${user._id}`);
 
-                console.log('useEffect', response.data);
                 setReviews(response.data);
             } catch (error) {
                 console.error('Error fetching reviews:', error);

@@ -25,3 +25,9 @@
   min-width: 600px;
   padding: 2rem 0;
 }
+
+.difficulty-dropdown {
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+}

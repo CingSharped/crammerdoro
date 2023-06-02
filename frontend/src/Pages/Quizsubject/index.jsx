@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Form } from 'react-bootstrap';
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { ReviewForm } from "../../components";
@@ -15,28 +16,42 @@ const QuizSubject = () => {
 
   const subjectNumber = { Maths: 19, Science: 17, History: 23 };
 
+  const [selectedDifficulty, setSelectedDifficulty] = useState('');
+
   function filterInput(str) {
     str = str.replace(/&quot;/g, "'");
     str = str.replace(/&Eacute;/g, "E");
     str = str.replace(/&#039;/g, "'");
+    str = str.replace(/&deg;C/g, "&#8451;");
+    str = str.replace(/&amp;/g, "&");
+    str = str.replace(/&rsquo;/g, "'");
+    str = str.replace(/&ouml;/g, "ö");
+    str = str.replace(/&deg;/g, "º")
+    str = str.replace(/&sup2;/g, "^2")
     return str;
   }
-  
+
+  const fetchQuizData = async () => {
+    try {
+      const response = await axios.get(
+        `https://opentdb.com/api.php?amount=10&category=${subjectNumber[subject]
+        }&difficulty=${selectedDifficulty}&type=multiple`
+      );
+      setQuizData(response.data.results);
+    } catch (error) {
+      console.error("Error fetching quiz data:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchQuizData = async () => {
-      try {
-        const response = await axios.get(
-          `https://opentdb.com/api.php?amount=10&category=${subjectNumber[subject]}&type=multiple`
-        );
-        setQuizData(response.data.results);
-        console.log(response.data.results);
-      } catch (error) {
-        console.error("Error fetching quiz data:", error);
-      }
-    };
     fetchQuizData();
-  }, [subject]);
+  }, []);
+
+  useEffect(() => {
+    if (selectedDifficulty) {
+      fetchQuizData();
+    }
+  }, [selectedDifficulty]);
 
   useEffect(() => {
     if (quizData && currentQuestion < quizData.length) {
@@ -45,9 +60,14 @@ const QuizSubject = () => {
         ...quizData[currentQuestion].incorrect_answers,
       ]);
     }
-
-    //console.log(quizData[currentQuestion].incorrect_answers)
   }, [quizData, currentQuestion]);
+
+  const handleDifficultyChange = (event) => {
+    setSelectedDifficulty(event.target.value);
+    setCurrentQuestion(0);
+    setShowScore(false);
+    setScore(0);
+  };
 
   const handleAnswerOptionClick = (isAnswerOption) => {
     const correctAnswer = quizData[currentQuestion].correct_answer;
@@ -58,16 +78,32 @@ const QuizSubject = () => {
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < quizData.length) {
       setCurrentQuestion(nextQuestion);
-      // setAnswerOptions([quizData[currentQuestion].correct_answer, ...quizData[currentQuestion].incorrect_answers])
     } else {
       setShowScore(true);
     }
-
-    //console.log(answerOptions)
   };
 
   return (
     <div className="quiz-container">
+
+      <div className="difficulty-dropdown mb-3">
+        <Form.Label
+          className="mx-2">
+          Select Difficulty:
+        </Form.Label>
+
+        <Form.Control
+          as="select"
+          value={selectedDifficulty}
+          onChange={handleDifficultyChange}
+        >
+          <option value="">Any Difficulty</option>
+          {subject !== "Maths" && <option value="easy">Easy</option>}
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </Form.Control>
+      </div>
+
       {showScore ? (
         <div className="score-section">
           <ReviewForm score={score} subject={subject} />
@@ -89,10 +125,10 @@ const QuizSubject = () => {
               {answerOptions.map((answerOption, index) => (
                 <button
                   key={index}
-                  className="__btn white-to-green wide-btn"
+                  className="__btn white-to-green wide-btn text-capitalize"
                   onClick={() => handleAnswerOptionClick(answerOption)}
                 >
-                  {answerOption}
+                  {filterInput(answerOption)}
                 </button>
               ))}
             </div>
