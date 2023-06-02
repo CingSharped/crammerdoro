@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
 import { QuizSubjectCard } from '../../components';
 import './quiz.css'
 
@@ -10,7 +9,7 @@ const QuizPage = () => {
     setSearchValue(event.target.value);
   };
 
-  const subjects = ['Science', 'Maths', 'History'];
+  const subjects = ['Science', 'Maths', 'History', 'Art'];
 
   const filteredSubjects = subjects.filter(subject =>
     subject.toLowerCase().includes(searchValue.toLowerCase())
@@ -19,15 +18,12 @@ const QuizPage = () => {
   return (
     <>
       <div className='flashcard-container d-flex flex-column align-items-center'>
-        <Form>
-          <Form.Control
+          <input
             type="text"
-            style={{ width: '15rem', justifyItems: 'center' }}
             value={searchValue}
             onChange={handleSearchChange}
             placeholder="Search subjects"
           />
-        </Form>
         <QuizSubjectCard subjects={filteredSubjects} />
       </div>
     </>

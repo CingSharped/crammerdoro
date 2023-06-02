@@ -11,3 +11,10 @@ h1 {
 .flashcard-container {
   margin-top: 10vh;
 }
+
+div.flashcard-container > input {
+  width: 15rem;
+  padding: 0.3rem 1rem;
+  text-align: center;
+  border-radius: 100px;
+}
