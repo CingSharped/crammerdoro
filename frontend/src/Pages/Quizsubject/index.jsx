@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Form } from 'react-bootstrap';
 import { useParams , useNavigate} from "react-router-dom";
+
 import axios from "axios";
 import { ReviewForm } from "../../components";
 import "./quizsubject.css";
+
+import { useDifficulty } from '../../context';
 
 
 const QuizSubject = () => {
@@ -12,14 +15,13 @@ const QuizSubject = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  const { difficulty, setDifficulty } = useDifficulty();
 
   const navigate = useNavigate();
 
   const { subject } = useParams();
 
   const subjectNumber = { Maths: 19, Science: 17, History: 23, Art: 25 };
-
-  const [selectedDifficulty, setSelectedDifficulty] = useState('');
 
   function filterInput(str) {
     str = str.replace(/&quot;/g, "'");
@@ -38,8 +40,9 @@ const QuizSubject = () => {
     try {
       const response = await axios.get(
         `https://opentdb.com/api.php?amount=10&category=${subjectNumber[subject]
-        }&difficulty=${selectedDifficulty}&type=multiple`
+        }&difficulty=${difficulty === 'easy' && subject === 'Maths' ? 'medium' : difficulty}&type=multiple`
       );
+      console.log(response.data.results);
       setQuizData(response.data.results);
     } catch (error) {
       console.error("Error fetching quiz data:", error);
@@ -51,12 +54,6 @@ const QuizSubject = () => {
   }, []);
 
   useEffect(() => {
-    if (selectedDifficulty) {
-      fetchQuizData();
-    }
-  }, [selectedDifficulty]);
-
-  useEffect(() => {
     if (quizData && currentQuestion < quizData.length) {
       setAnswerOptions([
         quizData[currentQuestion].correct_answer,
@@ -64,13 +61,6 @@ const QuizSubject = () => {
       ]);
     }
   }, [quizData, currentQuestion]);
-
-  const handleDifficultyChange = (event) => {
-    setSelectedDifficulty(event.target.value);
-    setCurrentQuestion(0);
-    setShowScore(false);
-    setScore(0);
-  };
 
   const handleAnswerOptionClick = (isAnswerOption) => {
     const correctAnswer = quizData[currentQuestion].correct_answer;
@@ -106,7 +96,6 @@ const QuizSubject = () => {
           <option value="hard">Hard</option>
         </Form.Control>
       </div>
-
       {showScore ? (
         <div className="score-section">
           <ReviewForm score={score} subject={subject} />
