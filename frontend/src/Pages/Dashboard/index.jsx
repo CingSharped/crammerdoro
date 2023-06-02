@@ -29,7 +29,7 @@ const Dashboard = () => {
 
                 <div className="section">
                   <div className='dashboard-container'>
-                    <div><h1 className='text-capitalize'>Welcome, <br /> {user.username}</h1></div>
+                    <div><h1 className='text-capitalize'>Welcome, {user.username} :)</h1></div>
                   </div>
                 </div>
 
