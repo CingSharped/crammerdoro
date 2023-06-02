@@ -28,3 +28,18 @@ export const FlashcardProvider = ({ children }) => {
 };
 
 export const useFlashcard = () => useContext(FlashcardContext);
+
+
+const DifficultyContext = createContext();
+
+export const DifficultyProvider = ({ children }) => {
+    const [difficulty, setDifficulty] = useState("");
+
+    return (
+        <DifficultyContext.Provider value={{ difficulty, setDifficulty }}>
+            {children}
+        </DifficultyContext.Provider>
+    );
+};
+
+export const useDifficulty = () => useContext(DifficultyContext);
