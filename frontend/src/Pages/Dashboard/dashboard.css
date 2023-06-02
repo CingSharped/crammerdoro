@@ -8,12 +8,13 @@
 
 .dashboard-container {
     width: 100vw;
-    height: 90vh;
+    height: 80vh;
     float: left;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: space-between;
+    margin-top: 15vh;
 }
 
 .dashboard-btns {

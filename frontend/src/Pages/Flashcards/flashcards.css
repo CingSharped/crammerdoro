@@ -1,4 +1,4 @@
-h1{
+h1 {
   margin-top: 100px;
 }
 
@@ -8,7 +8,6 @@ h1{
   }
 }
 
-.flashcard-container{
-  margin-top: 15vh;
+.flashcard-container {
+  margin-top: 10vh;
 }
-
