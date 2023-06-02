@@ -5,7 +5,6 @@ import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context';
 import logo from '../../assets/Cramodoro Favicon.png'
 
-
 import { PomodoroTimer, BootstrapAlert } from '..'
 
 const styles = ({ isActive }) => ({ color: isActive ? '#ECD444' : 'black' });
@@ -25,9 +24,9 @@ const PageWrapper = () => {
 
     return <>
         <header>
-            <Navbar bg="light" expand="lg" fixed="top">
+            <Navbar expand="lg" fixed="top" className='color-nav'>
                 <Container fluid>
-                    <img src={logo} alt="Music App Logo" className="logo" style={{ width: '4%', marginRight: '20px' }} />
+                    <img src={logo} alt="Music App Logo" className="logo" style={{ width: '3%', marginRight: '20px' }} />
                     <Navbar.Brand as={NavLink} to='/' >CRAMODORO</Navbar.Brand>
 
                     <Nav className="justify-content-end flex-grow-1 pe-3">
