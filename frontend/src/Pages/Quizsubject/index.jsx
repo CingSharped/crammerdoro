@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form } from 'react-bootstrap';
-import { useParams , useNavigate} from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import { ReviewForm } from "../../components";
@@ -42,7 +42,6 @@ const QuizSubject = () => {
         `https://opentdb.com/api.php?amount=10&category=${subjectNumber[subject]
         }&difficulty=${difficulty === 'easy' && subject === 'Maths' ? 'medium' : difficulty}&type=multiple`
       );
-      console.log(response.data.results);
       setQuizData(response.data.results);
     } catch (error) {
       console.error("Error fetching quiz data:", error);
@@ -78,24 +77,8 @@ const QuizSubject = () => {
 
   return (
     <div className="quiz-container">
-      <button className = "__btn white-to-green back-button" onClick={() => navigate("/quiz")}>Back to Quizzes</button>
-      <div className="difficulty-dropdown mb-3">
-        <Form.Label
-          className="mx-2">
-          Select Difficulty:
-        </Form.Label>
+      <button className="__btn white-to-green back-button" onClick={() => navigate("/quiz")}>Back to Quizzes</button>
 
-        <Form.Control
-          as="select"
-          value={selectedDifficulty}
-          onChange={handleDifficultyChange}
-        >
-          <option value="">Any Difficulty</option>
-          {subject !== "Maths" && <option value="easy">Easy</option>}
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-        </Form.Control>
-      </div>
       {showScore ? (
         <div className="score-section">
           <ReviewForm score={score} subject={subject} />

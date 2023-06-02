@@ -1,43 +1,101 @@
 # CRAMODORO
-This is a fullstack flashcard and quiz application with a built-in pomodoro timer feature. The app is built using React and allows users to study flashcards or complete quizzes on various subjects. User details and scores are stored in a MongoDB database.
+This is a fullstack flashcard and quiz application with a built-in pomodoro timer feature. The app is built using React and allows users to study flashcards or complete quizzes on various subjects. User details and scores are stored in a MongoDB database. Created to [this brief](https://gist.github.com/rom-30/d1a5665ecffb47c3ce7e1c4756271517)
 
 ## Features 
 - Flashcards: Users can create and study flashcards on different subjects.
 - Quizzes: Users can take quizzes on selected subjects and test their knowledge.
 - Pomodoro Timer: The app includes a pomodoro timer feature to help users manage their study sessions effectively.
 - Subject Selection: Users can choose from a list of subjects to study or take quizzes on.
-- Review Logs: The app tracks the user's progress in flashcards and quizzes, providing entry logs which can be viewed by filtering.
+- Review Logs: at the end of every quiz users right a quick review about how they performed in the quiz and what they need to study on to improve
 
-## Installation
-- Git clone the repo on your local machine
-- cd into `/backend` and run `npm i` to install dependencies
-- create `.env` file in `/api` folder with the following environment variables: 
+# Contributors
+- [Gi Ho](https://github.com/ThegeralbeanQD)
+- [Daniel Ogunsanya](https://github.com/danteoguns11)
+- [Alina Hafeez](https://github.com/Linaintech)
+- [Joao Patacas](https://github.com/jpatacas)
+- [Christopher Sharpe](https://github.com/CingSharped)
 
-Environment variable | value
----|---
-`PORT=` |server port (e.g. 3000)
-`MONGO_URI=`| mongo DB URI 
-`SALT=`  |
-`SECRET=` |
-`DB_USERNAME=` |mongo DB username
-`DB__PASSWORD=`|mongo DB password
-`DEV=` | `true`
+# Installation & Usage
+1. Open a ```GitBash``` terminal and navigate to the directory you wish to store the project in.
+
+2. clone the repo using the below command
+```
+git clone git@github.com:CingSharped/crammerdoro.git
+```
+3. Navigate into the ```frontend/``` folder using the below command
+```
+cd crammerdoro && cd frontend/
+```
+4. Install the required packages using the below command
+```
+npm install
+```
+5. The code for the frontend uses a deployed version of the API, however the server may be idle, visit [the api](https://crammerdoro-backend.onrender.com/) to wake it up
+
+6. Back in your GitBash terminal in the ```fontend/``` folder, start the frontend with the below command
+```
+npm run dev
+```
+7. Your GitBash terminal should now display a link, visit the [link](http://localhost:5173/) in your browser and you should be able to see the website
+
+## Running the server locally
+Note this can only be used to test endpoints locally through your web browser or hopscotch, the front end will not connect to your local version of the server without modifications to the frontend requests.
+
+1. Open the ```backend/``` folder of the code in your code editor and create a ```.env``` file with the below information. you will need to create your own mongodb database to get your own URI refer to their [Docs](https://www.mongodb.com/docs/drivers/node/current/)
+
+```js .env
+PORT=3000
+MONGO_URI="mongodb+srv://username:password@crammerdoro.9hxrsow.mongodb.net/database?retryWrites=true&w=majority"  
+SALT=10
+SECRET=somesecretstring
+DEV=true
+```
+
+2. Open a GitBash terminal and navigate into the ```backend/``` folder and run the below code to install required packages
+```
+npm install
+```
+3. Run the server with the below command
+```
+npm run dev
+```
+4. You can now test the API locally at ```http://localhost:<Port from .env>```
 
 
-- cd into `/frontend` and run `npm i` to install dependencies
 
-## How to run the server
+## API Endpoints
+Endpoint|Required body|Function
+---|---|---
+/users | | 
+POST- ```/users/signup``` | body: {username, password} | Signs up a user with username and password
+POST- ```/users/login``` | body: {username, password} | logs in the user
+/reviews | |
+GET- ```/review/:_id``` | none required | returns all reviews associated with users _id
+POST- ```/reviews``` | body: {subject, score, log, createdBy} | creates review
+/flashcards
+GET- ```/flashcards/:_id``` | none required | returns all flashcards associated with users _id
+POST- ```/flashcards``` | body: {subject, question, answer, createdBy} | creates flashcard
 
-- cd into `/backend` 
-- run the server with `npm run dev`
+# Technologies
+## Frontend
+- Vite
+- React
+- Bootstrap
+- Axios
+- React router dom
+- Vitest
+- Jest
+- Jsdom
 
-## How to run the client
+## Backend
+- Express
+- Cors
+- BCrypt
+- Jsonwebtoken
+- Morgan
+- Mongoose
+- MongoDB
 
-- cd into `/frontend` and run `npm run dev`
 
-## To do
-
-
-# Usage #
-1) Run npm run dev
-2) Open the app in your browser at http://localhost:3000.
+# Known bugs
+- Following a suggestion link as soon as you log in will not work, it will work if the flashcards page has been visited prior to using a suggestion link
