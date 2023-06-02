@@ -27,7 +27,7 @@ const PageWrapper = () => {
             <Navbar expand="lg" fixed="top" className='color-nav'>
                 <Container fluid>
                     <img src={logo} alt="Music App Logo" className="logo" style={{ width: '3%', marginRight: '20px' }} />
-                    <Navbar.Brand as={NavLink} to='/' >CRAMODORO</Navbar.Brand>
+                    <Navbar.Brand as={NavLink} to='/' className='nav-title'>CRAMODORO</Navbar.Brand>
 
                     <Nav className="justify-content-end flex-grow-1 pe-3">
 
