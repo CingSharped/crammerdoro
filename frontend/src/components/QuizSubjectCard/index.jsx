@@ -19,8 +19,8 @@ const QuizSubjectCard = ({ subjects }) => {
   return (
     <>
       <div className='card-container'>
-        {subjects.map(subject => (
-          <Link to={`/quiz/${subject}`}>
+        {subjects.map((subject, idx) => (
+          <Link key={idx} to={`/quiz/${subject}`}>
             <div
               className='quizcard'
               style={{ backgroundImage: `url(${subjectImages[subject.toLowerCase()]})` }}
