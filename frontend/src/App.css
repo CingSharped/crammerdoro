@@ -143,7 +143,7 @@ body {
 
 .__btn.back-button {
   width: 15vw;
-  margin: 1rem;
+  margin: 1rem 1rem 8rem;
   align-self: flex-start;
   
 }

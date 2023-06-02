@@ -3,7 +3,7 @@ import Alert from 'react-bootstrap/Alert';
 
 import './bootstrapAlert.css'
 
-function AlertDismissibleExample({heading, warning}) {
+function BootstrapAlert({heading, warning}) {
   const [show, setShow] = useState(true);
 
   if (show) {
@@ -15,11 +15,10 @@ function AlertDismissibleExample({heading, warning}) {
           {warning}
         </p>
       </Alert>
-
       </div>
 
     );
   }
 }
 
-export default AlertDismissibleExample;
+export default BootstrapAlert;

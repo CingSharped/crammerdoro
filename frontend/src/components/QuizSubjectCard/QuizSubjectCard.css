@@ -22,12 +22,14 @@
 }
 
 .quizcard h2 {
-    background-color: #365050;
-    padding: 1rem;
-    font-size: 4rem;
-    font-weight: bold;
-    border-radius: 10px;
-    color: white;
+    background-color: #365050a1;
+  padding: 1rem;
+  font-size: 4rem;
+  font-weight: bold;
+  width: 400px;
+  height: 150px;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
 }
 
 .quizcard:hover {
