@@ -16,8 +16,6 @@ const TryThese = () => {
                 const response = await axios.get(
                     `https://crammerdoro-backend.onrender.com/reviews/${user._id}`
                 );
-
-                console.log('useEffect', response.data);
                 setReviews(response.data);
             } catch (error) {
                 console.error('Error fetching reviews:', error);
@@ -48,6 +46,7 @@ const TryThese = () => {
         "Stay positive and keep giving your best!",
     ];
 
+    // https://unicode.org/emoji/charts/full-emoji-list.html
     const getEmoji = (score) => {
         if (score >= 1 && score <= 2) {
             return {

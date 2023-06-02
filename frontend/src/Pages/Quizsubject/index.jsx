@@ -38,7 +38,6 @@ const QuizSubject = () => {
         }&difficulty=${selectedDifficulty}&type=multiple`
       );
       setQuizData(response.data.results);
-      console.log(response.data.results);
     } catch (error) {
       console.error("Error fetching quiz data:", error);
     }
