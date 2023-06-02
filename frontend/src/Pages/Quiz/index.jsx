@@ -33,7 +33,7 @@ const QuizPage = () => {
           placeholder="Search subjects"
         />
 
-        <div className="difficulty-dropdown mb-3">
+        <div className="difficulty-dropdown mt-3">
           <Form.Label
             className="mx-2">
             Select Difficulty:
@@ -45,7 +45,7 @@ const QuizPage = () => {
             onChange={handleDifficultyChange}
           >
             <option value="">Any Difficulty</option>
-            {filteredSubjects !== "Maths" && <option value="easy">Easy</option>}
+            <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
           </Form.Control>
