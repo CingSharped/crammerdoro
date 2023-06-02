@@ -19,6 +19,8 @@ const QuizSubject = () => {
     str = str.replace(/&quot;/g, "'");
     str = str.replace(/&Eacute;/g, "E");
     str = str.replace(/&#039;/g, "'");
+    str = str.replace(/&deg;/g,"º")
+    str = str.replace(/&sup2;/g, "^2")
     return str;
   }
   
@@ -92,7 +94,7 @@ const QuizSubject = () => {
                   className="__btn white-to-green wide-btn"
                   onClick={() => handleAnswerOptionClick(answerOption)}
                 >
-                  {answerOption}
+                  {filterInput(answerOption)}
                 </button>
               ))}
             </div>
