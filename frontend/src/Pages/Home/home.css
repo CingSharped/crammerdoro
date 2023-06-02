@@ -89,6 +89,26 @@
   text-align: center;
   font-size: 1rem;
   width: 40vw;
+  line-height: 3vh;
+  margin-top: 5vw;
+}
+
+#learn-more {
+  display: flex;
+  flex-direction: row;
+}
+
+#timer-screenshot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#pomodoro-info,
+#flashcard-info {
+  text-align: center;
+  font-size: 1rem;
+  width: 40vw;
   line-height: 2.5vh;
   margin-top: 5vw;
 }
@@ -108,5 +128,3 @@
 
   }
 }
-
-
