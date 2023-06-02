@@ -140,3 +140,10 @@ body {
   background-size: 200% 100%;
   background-position: right center;
 }
+
+.__btn.back-button {
+  width: 15vw;
+  margin: 1rem;
+  align-self: flex-start;
+  
+}

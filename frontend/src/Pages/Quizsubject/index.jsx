@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Form } from 'react-bootstrap';
-import { useParams } from "react-router-dom";
+import { useParams , useNavigate} from "react-router-dom";
 import axios from "axios";
 import { ReviewForm } from "../../components";
 import "./quizsubject.css";
+
 
 const QuizSubject = () => {
   const [answerOptions, setAnswerOptions] = useState([]);
@@ -11,6 +12,8 @@ const QuizSubject = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+
+  const navigate = useNavigate();
 
   const { subject } = useParams();
 
@@ -85,7 +88,7 @@ const QuizSubject = () => {
 
   return (
     <div className="quiz-container">
-
+      <button className = "__btn white-to-green back-button" onClick={() => navigate("/quiz")}>Back to Quizzes</button>
       <div className="difficulty-dropdown mb-3">
         <Form.Label
           className="mx-2">
