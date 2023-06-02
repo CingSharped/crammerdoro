@@ -16,7 +16,7 @@ const Home = () => {
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className="section homepage">
+              <div className="section homepage" id='landing'>
                 <div className="left-container">
                   <h5 id="intro">
                     {" "}
@@ -32,7 +32,7 @@ const Home = () => {
                         Sign Up
                       </button>
                     </Link>
-                    <HashLink smooth to="#section-2">
+                    <HashLink smooth to="#learn-more">
                       <button className="landing-btn" id="learn-btn">
                         Learn More
                       </button>
@@ -44,7 +44,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="section" id="section-2">
+              <div className="section" id="learn-more">
                 <HashLink smooth to="#landing">
                   <Button>top</Button>
                 </HashLink>

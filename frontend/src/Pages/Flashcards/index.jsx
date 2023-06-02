@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useAuth, useFlashcard } from '../../context';
 import { FlashcardLinks } from '../../components';
 
+import './flashcards.css';
 
 const Flashcards = () => {
   const { user } = useAuth();
@@ -27,12 +28,10 @@ const Flashcards = () => {
   useEffect(() => {
     const uniqueSubjects = Array.from(new Set(flashcards.map(flashcard => flashcard.subject)));
     setSubjects(uniqueSubjects);
-    // console.log(flashcards);
   }, [flashcards]);
 
   const handleSearchChange = (event) => {
-    const { value } = event.target;
-    setSearchValue(value);
+    setSearchValue(event.target.value);
   };
 
   const filteredSubjects = subjects.filter(subject =>

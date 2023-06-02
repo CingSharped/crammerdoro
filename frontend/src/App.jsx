@@ -20,7 +20,7 @@ const App = () => {
             <Route path="/" element={<ProtectedRoute redirectTo="/login" />}>
               <Route path="/dashboard" element={<Pages.Dashboard />} />
               <Route path="/flashcards" element={<Pages.Flashcards />} />
-              <Route path="/subjectflashcard/:subject" element={<Pages.SubjectFlashcard />}/>
+              <Route path="/subjectflashcard/:subject" element={<Pages.SubjectFlashcard />} />
               <Route path="/quiz/:subject" element={<Pages.QuizSubject />} />
               <Route path="/quiz" element={<Pages.Quiz />} />
             </Route>
