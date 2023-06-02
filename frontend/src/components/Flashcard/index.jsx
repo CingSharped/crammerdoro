@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import './flashcard.css'
+
 const Flashcard = ({ question, answer }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
