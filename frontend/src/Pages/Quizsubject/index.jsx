@@ -14,7 +14,7 @@ const QuizSubject = () => {
 
   const { subject } = useParams();
 
-  const subjectNumber = { Maths: 19, Science: 17, History: 23 };
+  const subjectNumber = { Maths: 19, Science: 17, History: 23, Art: 25 };
 
   const [selectedDifficulty, setSelectedDifficulty] = useState('');
 
