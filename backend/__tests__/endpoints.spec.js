@@ -3,7 +3,7 @@ const app = require("../app");
 
 describe("API endpoints", () => {
   let API;
-  const port = 5000;
+  const port = 3000;
 
   beforeAll(() => {
     api = app.listen(port, () => {
@@ -21,7 +21,12 @@ describe("API endpoints", () => {
     request(api).get('/').expect(200, done)
   })
 
-  it('responds to GET /flashcards/:_id with 200', (done) => {
-    request(api).get("/flashcards/6474a1c91cdd56c12d8b9607").expect(200, done);
+  it('responds to GET /flashcards/:_id with wrong user _id with 400 server error', async () => {
+    const response = await request(api).get("/flashcards/123456")
+    expect(response.status).toBe(400);
   })
+
+  it("responds to GET /reviews/:_id with wrong user _id with 400 server error", (done) => {
+    request(api).get("/reviews/123456").expect(400, done);
+  });
 });
