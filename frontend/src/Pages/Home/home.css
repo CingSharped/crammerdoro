@@ -129,8 +129,4 @@
   }
 }
 
-@media (min-width: 2010px) {
-  #intro {
-    transform: translateY(-26vw) translateX(10vw);
-  }
-}
+
