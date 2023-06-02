@@ -33,18 +33,67 @@ div.carousel-item.active {
 }
 
 .card-front {
-  background-color: #fd6262;
+  background: linear-gradient(45deg, #507e7e, #01cb92);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+.card-front > h2 {
+  color: #f7f7f7;
+  font-size: 2rem;
+  font-weight: bolder;
+  
+}
+
+.card-front > h2:after{
+  content: '';
+  display: block;
+  width: 400px;
+  height: 2px;
+  background: #f7f7f7;
+  position: absolute;
+  margin-top: 1rem;
+  left: 0;
+  margin-left: 5rem;
+}
+
+.card-front > p {
+  color: #f7f7f7;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 0 2rem;
+}
 
 .card-back {
-  background-color: #fd6262;
+  background-color: #f7f7f7;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   transform: rotateY(180deg);
+}
+
+.card-back > h2 {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+.card-back > p {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 0 2rem;
+}
+
+.card-back > h2:after{
+  content: '';
+  display: block;
+  width: 400px;
+  height: 2px;
+  background: #0e0e0e;
+  position: absolute;
+  margin-top: 1rem;
+  left: 0;
+  margin-left: 5rem;
 }
 
 .card-inner.flipped {
@@ -53,10 +102,14 @@ div.carousel-item.active {
 
 
 .page-container {
-  margin: 33vh 100px auto 100px;
-  /* height: 70vh; */
+  margin: 15vh 100px auto 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-height: 50vh;
+}
+
+div.carousel-indicators{
+  margin-bottom: 0;
+  transform: translateY(10vh);
 }

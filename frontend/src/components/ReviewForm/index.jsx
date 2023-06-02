@@ -4,7 +4,6 @@ import { useAuth } from '../../context'
 
 import axios from 'axios'
 import "./style.css";
-import BootstrapAlert from '..';
 
 const ReviewForm = ({ subject, score }) => {
   const [input, setInput] = useState()
