@@ -13,6 +13,11 @@ Servers for deployed versions may be idle, visit both links and allow time for s
 - Subject Selection: Users can choose from a list of subjects to study or take quizzes on.
 - Review Logs: at the end of every quiz users right a quick review about how they performed in the quiz and what they need to study on to improve
 
+## Demo
+![Demo](https://github.com/CingSharped/crammerdoro/blob/staging/frontend/src/assets/Crammerdoro%20Demo%20GIF%201.gif)
+
+![Demo](https://github.com/CingSharped/crammerdoro/blob/staging/frontend/src/assets/Crammerdoro%20Demo%20GIF%202.gif)
+
 # Contributors
 - [Gi Ho](https://github.com/ThegeralbeanQD)
 - [Daniel Ogunsanya](https://github.com/danteoguns11)
